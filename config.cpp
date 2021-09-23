@@ -182,14 +182,13 @@ class cfgVehicles
         {
             "ModularVestSystem\data\vestTextures\vest.rvmat"
         };
-        repairableWithKits[] = {3,3518};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints=375;
+					hitpoints=225;
                     healthLevels[] = 
                     {
                         {1.0,{"ModularVestSystem\data\vestTextures\vest.rvmat"}},
@@ -206,7 +205,7 @@ class cfgVehicles
 				{
 					class Health
 					{
-						damage = 0.4;
+						damage = 0.3;
 					};
 					class Blood
 					{
@@ -214,7 +213,7 @@ class cfgVehicles
 					};
 					class Shock
 					{
-						damage = 0.4;
+						damage = 0.6;
 					};
 				};
 				class Melee
@@ -259,7 +258,7 @@ class cfgVehicles
 					};
 					class Shock
 					{
-						damage = 0.5;
+						damage = 0.26;
 					};
 				};
 			};
@@ -290,14 +289,13 @@ class cfgVehicles
         {
             "ModularVestSystem\data\vestTextures\MVSHeavy.rvmat"
         };
-        repairableWithKits[] = {3,3518};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints=450;
+					hitpoints=300;
                     healthLevels[] = 
                     {
                         {1.0,{"ModularVestSystem\data\vestTextures\MVSHeavy.rvmat"}},
@@ -314,7 +312,7 @@ class cfgVehicles
 				{
 					class Health
 					{
-						damage = 0.3;
+						damage = 0.15;
 					};
 					class Blood
 					{
@@ -329,7 +327,7 @@ class cfgVehicles
 				{
 					class Health
 					{
-						damage = 0.2;
+						damage = 0.25;
 					};
 					class Blood
 					{
@@ -337,14 +335,14 @@ class cfgVehicles
 					};
 					class Shock
 					{
-						damage = 0.2;
+						damage = 0.25;
 					};
 				};
 				class Infected
 				{
 					class Health
 					{
-						damage = 0.2;
+						damage = 0.25;
 					};
 					class Blood
 					{
@@ -352,7 +350,7 @@ class cfgVehicles
 					};
 					class Shock
 					{
-						damage = 0.2;
+						damage = 0.25;
 					};
 				};
 				class FragGrenade
@@ -367,7 +365,7 @@ class cfgVehicles
 					};
 					class Shock
 					{
-						damage = 0.5;
+						damage = 0.26;
 					};
 				};
 			};
@@ -1120,7 +1118,6 @@ class cfgVehicles
 			};
 		};
 	};
-	
 	class MVS_Admin_Pouch_OD: Modular_Pouch_Base_Admin
 	{
 		scope = 2;
@@ -1545,7 +1542,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 110;
+					hitpoints = 50;
 					healthLevels[] = 	
 					{					
 						{1.0,{"ModularVestSystem\data\Helmets\do_helmet.rvmat"}},
@@ -1553,69 +1550,6 @@ class cfgVehicles
 						{0.5,{"ModularVestSystem\data\Helmets\do_helmet_damage.rvmat"}},
 						{0.3,{"ModularVestSystem\data\Helmets\do_helmet_damage.rvmat"}},
 						{0.0,{"ModularVestSystem\data\Helmets\do_helmet_destruct.rvmat"}}
-					};
-				};
-			};
-			class GlobalArmor
-			{
-				class Projectile
-				{
-					class Health
-					{
-						damage = 0.35;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.5;
-					};
-				};
-				class Melee
-				{
-					class Health
-					{
-						damage = 0.25;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.25;
-					};
-				};
-				class Infected
-				{
-					class Health
-					{
-						damage = 0.25;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.25;
-					};
-				};
-				class FragGrenade
-				{
-					class Health
-					{
-						damage = 0.5;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.26;
 					};
 				};
 			};
@@ -1756,7 +1690,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 110;
+					hitpoints = 50;
 					healthLevels[] = 	
 					{					
 						{1.0,{"ModularVestSystem\data\Helmets\mvs_helmet_2.rvmat"}},
@@ -1764,69 +1698,6 @@ class cfgVehicles
 						{0.5,{"ModularVestSystem\data\Helmets\mvs_helmet_2_damage.rvmat"}},
 						{0.3,{"ModularVestSystem\data\Helmets\mvs_helmet_2_damage.rvmat"}},
 						{0.0,{"ModularVestSystem\data\Helmets\mvs_helmet_2_destruct.rvmat"}}
-					};
-				};
-			};
-			class GlobalArmor
-			{
-				class Projectile
-				{
-					class Health
-					{
-						damage = 0.35;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.5;
-					};
-				};
-				class Melee
-				{
-					class Health
-					{
-						damage = 0.25;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.25;
-					};
-				};
-				class Infected
-				{
-					class Health
-					{
-						damage = 0.25;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.25;
-					};
-				};
-				class FragGrenade
-				{
-					class Health
-					{
-						damage = 0.5;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.26;
 					};
 				};
 			};
@@ -1947,7 +1818,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 120;
+					hitpoints = 50;
 					healthLevels[] = 	
 					{					
 						{1.0,{"ModularVestSystem\data\Helmets\MVS_6B47.rvmat"}},
@@ -1955,69 +1826,6 @@ class cfgVehicles
 						{0.5,{"ModularVestSystem\data\Helmets\MVS_6B47_damage.rvmat"}},
 						{0.3,{"ModularVestSystem\data\Helmets\MVS_6B47_damage.rvmat"}},
 						{0.0,{"ModularVestSystem\data\Helmets\MVS_6B47_destruct.rvmat"}}
-					};
-				};
-			};
-			class GlobalArmor
-			{
-				class Projectile
-				{
-					class Health
-					{
-						damage = 0.35;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.5;
-					};
-				};
-				class Melee
-				{
-					class Health
-					{
-						damage = 0.25;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.25;
-					};
-				};
-				class Infected
-				{
-					class Health
-					{
-						damage = 0.25;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.25;
-					};
-				};
-				class FragGrenade
-				{
-					class Health
-					{
-						damage = 0.5;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.26;
 					};
 				};
 			};
@@ -2083,7 +1891,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 120;
+					hitpoints = 50;
 					healthLevels[] = 	
 					{					
 						{1.0,{"ModularVestSystem\data\Helmets\OpsCore.rvmat"}},
@@ -2091,69 +1899,6 @@ class cfgVehicles
 						{0.5,{"ModularVestSystem\data\Helmets\OpsCore_damage.rvmat"}},
 						{0.3,{"ModularVestSystem\data\Helmets\OpsCore_damage.rvmat"}},
 						{0.0,{"ModularVestSystem\data\Helmets\OpsCore_destruct.rvmat"}}
-					};
-				};
-			};
-			class GlobalArmor
-			{
-				class Projectile
-				{
-					class Health
-					{
-						damage = 0.35;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.5;
-					};
-				};
-				class Melee
-				{
-					class Health
-					{
-						damage = 0.25;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.25;
-					};
-				};
-				class Infected
-				{
-					class Health
-					{
-						damage = 0.25;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.25;
-					};
-				};
-				class FragGrenade
-				{
-					class Health
-					{
-						damage = 0.5;
-					};
-					class Blood
-					{
-						damage = 0.0;
-					};
-					class Shock
-					{
-						damage = 0.26;
 					};
 				};
 			};
@@ -2285,7 +2030,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints=130;
+					hitpoints=100;
                     healthLevels[] = 
                     {
                         {1.0,{"ModularVestSystem\data\Helmets\OpsCore.rvmat","ModularVestSystem\data\Helmets\OpsCoreMandible.rvmat"}},
@@ -2497,7 +2242,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 130;
+					hitpoints = 100;
 					healthLevels[] = 	
 					{					
 						{1.0,{"ModularVestSystem\data\Helmets\MVS_Altyn.rvmat"}},
@@ -2514,7 +2259,7 @@ class cfgVehicles
 				{
 					class Health
 					{
-						damage = 0.25;
+						damage = 0.3;
 					};
 					class Blood
 					{
@@ -2533,7 +2278,7 @@ class cfgVehicles
 					};
 					class Blood
 					{
-						damage = 0;
+						damage = 0.0;
 					};
 					class Shock
 					{
@@ -2548,7 +2293,7 @@ class cfgVehicles
 					};
 					class Blood
 					{
-						damage = 0;
+						damage = 0.0;
 					};
 					class Shock
 					{
@@ -2571,7 +2316,7 @@ class cfgVehicles
 					};
 				};
 			};
-		};		
+		};	
 		class ClothingTypes
 		{
 			male="ModularVestSystem\data\Helmets\MVS_Altyn_Helmet.p3d";
@@ -2873,7 +2618,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 140;
+					hitpoints = 100;
 					healthLevels[] = 	
 					{					
 						{1.0,{"ModularVestSystem\data\Helmets\OpsCore.rvmat","ModularVestSystem\data\Helmets\MandalorianHelmet.rvmat"}},
@@ -2890,7 +2635,7 @@ class cfgVehicles
 				{
 					class Health
 					{
-						damage = 0.2;
+						damage = 0.3;
 					};
 					class Blood
 					{
@@ -2909,7 +2654,7 @@ class cfgVehicles
 					};
 					class Blood
 					{
-						damage = 0;
+						damage = 0.0;
 					};
 					class Shock
 					{
@@ -2924,7 +2669,7 @@ class cfgVehicles
 					};
 					class Blood
 					{
-						damage = 0;
+						damage = 0.0;
 					};
 					class Shock
 					{
@@ -3082,7 +2827,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 2000;
+					hitpoints = 300;
 					healthLevels[] = 	
 					{					
 						{1.0,{"ModularVestSystem\data\Pack\pack.rvmat"}},
@@ -3124,7 +2869,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 2000;
+					hitpoints = 300;
 					healthLevels[] = 	
 					{					
 						{1.0,{"ModularVestSystem\data\Pack\RaidPack.rvmat"}},
@@ -3249,7 +2994,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 2000;
+					hitpoints = 300;
 					healthLevels[] = 	
 					{					
 						{1.0,{"ModularVestSystem\data\Pack\SlingPack.rvmat"}},
@@ -3386,7 +3131,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 2000;
+					hitpoints = 300;
 					healthLevels[] = 	
 					{					
 						{1.0,{"ModularVestSystem\data\Pack\MVS_Compact_1.rvmat"}},
@@ -3520,7 +3265,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 2000;
+					hitpoints = 300;
 					healthLevels[] = 	
 					{					
 						{1.0,{"ModularVestSystem\data\Pack\MVS_Compact_2.rvmat","ModularVestSystem\data\Pack\MVS_Compact_2_Detail.rvmat"}},
@@ -3661,7 +3406,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 3000;
+					hitpoints = 300;
 					healthLevels[] = 	
 					{					
 						{1.0,{"ModularVestSystem\data\Pack\Rucksack.rvmat"}},
@@ -3890,7 +3635,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints=1500;
+					hitpoints=100;
                     healthLevels[] = 
                     {
                         {1.0,{"ModularVestSystem\data\Belt\belt.rvmat"}},
@@ -5384,7 +5129,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints=1500;
+					hitpoints=100;
                     healthLevels[] = 
                     {
                         {1.0,{"ModularVestSystem\data\Uniforms\MVS_CombatPants.rvmat"}},
@@ -5513,7 +5258,7 @@ class cfgVehicles
 			{
 				class Health
 				{
-					hitpoints=1500;
+					hitpoints=100;
                     healthLevels[] = 
                     {
                         {1.0,{"ModularVestSystem\data\Uniforms\MVS_CombatShirt.rvmat"}},
@@ -5626,14 +5371,13 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_CombatShirt_MC_Black.paa",
 			"ModularVestSystem\data\Uniforms\MVS_CombatShirt_MC_Black.paa"
 		};
-		heatIsolation = 0.75;
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints=1750;
+					hitpoints=100;
 					healthLevels[] = 
 					{
 						{1.0,{"DZ\characters\pants\Data\GorkaEPants.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped.rvmat"}},
@@ -5658,25 +5402,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_GorkaPants.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaPants.paa"
 		};
-		heatIsolation = 0.75;
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\pants\Data\GorkaEPants.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped.rvmat"}},
-						{0.7,{"DZ\characters\pants\Data\GorkaEPants.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped.rvmat"}},
-						{0.5,{"DZ\characters\pants\Data\GorkaEPants_damage.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_damage.rvmat"}},
-						{0.3,{"DZ\characters\pants\Data\GorkaEPants_damage.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_damage.rvmat"}},
-						{0.0,{"DZ\characters\pants\Data\GorkaEPants_destruct.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_destruct.rvmat"}}
-					};
-				};
-			};
-		};
 	};
 	class MVS_GorkaPants_Snow: GorkaPants_Flat
 	{
@@ -5688,25 +5413,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_GorkaPants_Snow.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaPants_Snow.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaPants_Snow.paa"
-		};
-		heatIsolation = 0.75;
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\pants\Data\GorkaEPants.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped.rvmat"}},
-						{0.7,{"DZ\characters\pants\Data\GorkaEPants.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped.rvmat"}},
-						{0.5,{"DZ\characters\pants\Data\GorkaEPants_damage.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_damage.rvmat"}},
-						{0.3,{"DZ\characters\pants\Data\GorkaEPants_damage.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_damage.rvmat"}},
-						{0.0,{"DZ\characters\pants\Data\GorkaEPants_destruct.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_destruct.rvmat"}}
-					};
-				};
-			};
 		};
 	};
 	class MVS_GorkaPants_Multicam: GorkaPants_Flat
@@ -5720,25 +5426,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_GorkaPants_MC.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaPants_MC.paa"
 		};
-		heatIsolation = 0.75;
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\pants\Data\GorkaEPants.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped.rvmat"}},
-						{0.7,{"DZ\characters\pants\Data\GorkaEPants.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped.rvmat"}},
-						{0.5,{"DZ\characters\pants\Data\GorkaEPants_damage.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_damage.rvmat"}},
-						{0.3,{"DZ\characters\pants\Data\GorkaEPants_damage.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_damage.rvmat"}},
-						{0.0,{"DZ\characters\pants\Data\GorkaEPants_destruct.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_destruct.rvmat"}}
-					};
-				};
-			};
-		};
 	};
 	class MVS_GorkaPants_Multicam_Tropic: GorkaPants_Flat
 	{
@@ -5751,25 +5438,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_GorkaPants_MC_Tropic.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaPants_MC_Tropic.paa"
 		};
-		heatIsolation = 0.75;
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\pants\Data\GorkaEPants.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped.rvmat"}},
-						{0.7,{"DZ\characters\pants\Data\GorkaEPants.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped.rvmat"}},
-						{0.5,{"DZ\characters\pants\Data\GorkaEPants_damage.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_damage.rvmat"}},
-						{0.3,{"DZ\characters\pants\Data\GorkaEPants_damage.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_damage.rvmat"}},
-						{0.0,{"DZ\characters\pants\Data\GorkaEPants_destruct.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_destruct.rvmat"}}
-					};
-				};
-			};
-		};
 	};
 	class MVS_GorkaPants_Multicam_Black: GorkaPants_Flat
 	{
@@ -5781,25 +5449,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_GorkaPants_MC_Black.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaPants_MC_Black.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaPants_MC_Black.paa"
-		};
-		heatIsolation = 0.75;
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\pants\Data\GorkaEPants.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped.rvmat"}},
-						{0.7,{"DZ\characters\pants\Data\GorkaEPants.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped.rvmat"}},
-						{0.5,{"DZ\characters\pants\Data\GorkaEPants_damage.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_damage.rvmat"}},
-						{0.3,{"DZ\characters\pants\Data\GorkaEPants_damage.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_damage.rvmat"}},
-						{0.0,{"DZ\characters\pants\Data\GorkaEPants_destruct.rvmat","DZ\characters\pants\Data\GorkaEPants_dropped_destruct.rvmat"}}
-					};
-				};
-			};
 		};
 	};
 	class GorkaEJacket_Flat;
@@ -5814,25 +5463,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_GorkaJacket.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaJacket.paa"
 		};
-		heatIsolation = 0.75;
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\tops\Data\GorkaUpper.rvmat","DZ\characters\tops\Data\GorkaUpper_g.rvmat"}},
-						{0.7,{"DZ\characters\tops\Data\GorkaUpper.rvmat","DZ\characters\tops\Data\GorkaUpper_g.rvmat"}},
-						{0.5,{"DZ\characters\tops\Data\GorkaUpper_damage.rvmat","DZ\characters\tops\Data\GorkaUpper_g_damage.rvmat"}},
-						{0.3,{"DZ\characters\tops\Data\GorkaUpper_damage.rvmat","DZ\characters\tops\Data\GorkaUpper_g_damage.rvmat"}},
-						{0.0,{"DZ\characters\tops\Data\GorkaUpper_destruct.rvmat","DZ\characters\tops\Data\GorkaUpper_g_destruct.rvmat"}}
-					};
-				};
-			};
-		};
 	};
 	class MVS_GorkaJacket_Snow: GorkaEJacket_Flat
 	{
@@ -5844,25 +5474,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_GorkaJacket_Snow.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaJacket_Snow.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaJacket_Snow.paa"
-		};
-		heatIsolation = 0.75;
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\tops\Data\GorkaUpper.rvmat","DZ\characters\tops\Data\GorkaUpper_g.rvmat"}},
-						{0.7,{"DZ\characters\tops\Data\GorkaUpper.rvmat","DZ\characters\tops\Data\GorkaUpper_g.rvmat"}},
-						{0.5,{"DZ\characters\tops\Data\GorkaUpper_damage.rvmat","DZ\characters\tops\Data\GorkaUpper_g_damage.rvmat"}},
-						{0.3,{"DZ\characters\tops\Data\GorkaUpper_damage.rvmat","DZ\characters\tops\Data\GorkaUpper_g_damage.rvmat"}},
-						{0.0,{"DZ\characters\tops\Data\GorkaUpper_destruct.rvmat","DZ\characters\tops\Data\GorkaUpper_g_destruct.rvmat"}}
-					};
-				};
-			};
 		};
 	};
 	class MVS_GorkaJacket_Multicam: GorkaEJacket_Flat
@@ -5876,25 +5487,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_GorkaJacket_MC.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaJacket_MC.paa"
 		};
-		heatIsolation = 0.75;
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\tops\Data\GorkaUpper.rvmat","DZ\characters\tops\Data\GorkaUpper_g.rvmat"}},
-						{0.7,{"DZ\characters\tops\Data\GorkaUpper.rvmat","DZ\characters\tops\Data\GorkaUpper_g.rvmat"}},
-						{0.5,{"DZ\characters\tops\Data\GorkaUpper_damage.rvmat","DZ\characters\tops\Data\GorkaUpper_g_damage.rvmat"}},
-						{0.3,{"DZ\characters\tops\Data\GorkaUpper_damage.rvmat","DZ\characters\tops\Data\GorkaUpper_g_damage.rvmat"}},
-						{0.0,{"DZ\characters\tops\Data\GorkaUpper_destruct.rvmat","DZ\characters\tops\Data\GorkaUpper_g_destruct.rvmat"}}
-					};
-				};
-			};
-		};
 	};
 	class MVS_GorkaJacket_Multicam_Tropic: GorkaEJacket_Flat
 	{
@@ -5907,25 +5499,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_GorkaJacket_MC_Tropic.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaJacket_MC_Tropic.paa"
 		};
-		heatIsolation = 0.75;
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\tops\Data\GorkaUpper.rvmat","DZ\characters\tops\Data\GorkaUpper_g.rvmat"}},
-						{0.7,{"DZ\characters\tops\Data\GorkaUpper.rvmat","DZ\characters\tops\Data\GorkaUpper_g.rvmat"}},
-						{0.5,{"DZ\characters\tops\Data\GorkaUpper_damage.rvmat","DZ\characters\tops\Data\GorkaUpper_g_damage.rvmat"}},
-						{0.3,{"DZ\characters\tops\Data\GorkaUpper_damage.rvmat","DZ\characters\tops\Data\GorkaUpper_g_damage.rvmat"}},
-						{0.0,{"DZ\characters\tops\Data\GorkaUpper_destruct.rvmat","DZ\characters\tops\Data\GorkaUpper_g_destruct.rvmat"}}
-					};
-				};
-			};
-		};
 	};
 	class MVS_GorkaJacket_Multicam_Black: GorkaEJacket_Flat
 	{
@@ -5937,25 +5510,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_GorkaJacket_MC_Black.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaJacket_MC_Black.paa",
 			"ModularVestSystem\data\Uniforms\MVS_GorkaJacket_MC_Black.paa"
-		};
-		heatIsolation = 0.75;
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\tops\Data\GorkaUpper.rvmat","DZ\characters\tops\Data\GorkaUpper_g.rvmat"}},
-						{0.7,{"DZ\characters\tops\Data\GorkaUpper.rvmat","DZ\characters\tops\Data\GorkaUpper_g.rvmat"}},
-						{0.5,{"DZ\characters\tops\Data\GorkaUpper_damage.rvmat","DZ\characters\tops\Data\GorkaUpper_g_damage.rvmat"}},
-						{0.3,{"DZ\characters\tops\Data\GorkaUpper_damage.rvmat","DZ\characters\tops\Data\GorkaUpper_g_damage.rvmat"}},
-						{0.0,{"DZ\characters\tops\Data\GorkaUpper_destruct.rvmat","DZ\characters\tops\Data\GorkaUpper_g_destruct.rvmat"}}
-					};
-				};
-			};
 		};
 	};
 	class FlatCap_Black;
@@ -6038,24 +5592,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_pants_BDU.paa",
 			"ModularVestSystem\data\Uniforms\MVS_pants_BDU.paa"
 		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\pants\Data\bdu_pants.rvmat"}},
-						{0.7,{"DZ\characters\pants\Data\bdu_pants.rvmat"}},
-						{0.5,{"DZ\characters\pants\Data\bdu_pants_damage.rvmat"}},
-						{0.3,{"DZ\characters\pants\Data\bdu_pants_damage.rvmat"}},
-						{0.0,{"DZ\characters\pants\Data\bdu_pants_destruct.rvmat"}}
-					};
-				};
-			};
-		};
 	};
 	class MVS_Pants_BDU_Snow: CargoPants_Beige
 	{
@@ -6068,24 +5604,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_pants_BDU_Snow.paa",
 			"ModularVestSystem\data\Uniforms\MVS_pants_BDU_Snow.paa",
 			"ModularVestSystem\data\Uniforms\MVS_pants_BDU_Snow.paa"
-		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\pants\Data\bdu_pants.rvmat"}},
-						{0.7,{"DZ\characters\pants\Data\bdu_pants.rvmat"}},
-						{0.5,{"DZ\characters\pants\Data\bdu_pants_damage.rvmat"}},
-						{0.3,{"DZ\characters\pants\Data\bdu_pants_damage.rvmat"}},
-						{0.0,{"DZ\characters\pants\Data\bdu_pants_destruct.rvmat"}}
-					};
-				};
-			};
 		};
 	};
 	class MVS_Shirt_BDU: TacticalShirt_Olive
@@ -6113,24 +5631,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_jacket_BDU_Snow.paa",
 			"ModularVestSystem\data\Uniforms\MVS_jacket_BDU_Snow.paa"
 		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\tops\Data\BDU_Jacket.rvmat"}},
-						{0.7,{"DZ\characters\tops\Data\BDU_Jacket.rvmat"}},
-						{0.5,{"DZ\characters\tops\Data\BDU_Jacket_damage.rvmat"}},
-						{0.3,{"DZ\characters\tops\Data\BDU_Jacket_damage.rvmat"}},
-						{0.0,{"DZ\characters\tops\Data\BDU_Jacket_destruct.rvmat"}}
-					};
-				};
-			};
-		};
 	};
 	class MVS_Shirt_BDU_Multicam: TacticalShirt_Olive
 	{
@@ -6143,24 +5643,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_jacket_BDU_MC.paa",
 			"ModularVestSystem\data\Uniforms\MVS_jacket_BDU_MC.paa",
 			"ModularVestSystem\data\Uniforms\MVS_jacket_BDU_MC.paa"
-		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\tops\Data\BDU_Jacket.rvmat"}},
-						{0.7,{"DZ\characters\tops\Data\BDU_Jacket.rvmat"}},
-						{0.5,{"DZ\characters\tops\Data\BDU_Jacket_damage.rvmat"}},
-						{0.3,{"DZ\characters\tops\Data\BDU_Jacket_damage.rvmat"}},
-						{0.0,{"DZ\characters\tops\Data\BDU_Jacket_destruct.rvmat"}}
-					};
-				};
-			};
 		};
 	};	
 	class MVS_Shirt_BDU_Multicam_Tropic: TacticalShirt_Olive
@@ -6175,24 +5657,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_jacket_BDU_MC_Tropic.paa",
 			"ModularVestSystem\data\Uniforms\MVS_jacket_BDU_MC_Tropic.paa"
 		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\tops\Data\BDU_Jacket.rvmat"}},
-						{0.7,{"DZ\characters\tops\Data\BDU_Jacket.rvmat"}},
-						{0.5,{"DZ\characters\tops\Data\BDU_Jacket_damage.rvmat"}},
-						{0.3,{"DZ\characters\tops\Data\BDU_Jacket_damage.rvmat"}},
-						{0.0,{"DZ\characters\tops\Data\BDU_Jacket_destruct.rvmat"}}
-					};
-				};
-			};
-		};
 	};
 	class MVS_Shirt_BDU_Multicam_Black: TacticalShirt_Olive
 	{
@@ -6205,24 +5669,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_jacket_BDU_MC_Black.paa",
 			"ModularVestSystem\data\Uniforms\MVS_jacket_BDU_MC_Black.paa",
 			"ModularVestSystem\data\Uniforms\MVS_jacket_BDU_MC_Black.paa"
-		};
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=1750;
-					healthLevels[] = 
-					{
-						{1.0,{"DZ\characters\tops\Data\BDU_Jacket.rvmat"}},
-						{0.7,{"DZ\characters\tops\Data\BDU_Jacket.rvmat"}},
-						{0.5,{"DZ\characters\tops\Data\BDU_Jacket_damage.rvmat"}},
-						{0.3,{"DZ\characters\tops\Data\BDU_Jacket_damage.rvmat"}},
-						{0.0,{"DZ\characters\tops\Data\BDU_Jacket_destruct.rvmat"}}
-					};
-				};
-			};
 		};
 	};
 	class BoonieHat_Olive;
