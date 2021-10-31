@@ -45,32 +45,37 @@ class CfgMods
 };
 class cfgVehicles
 {	
+	class Clothing;
+	class Bottle_Base;
 	class Container_Base;
-	class Clothing_Base;
-	class Clothing: Clothing_Base{};
-	class GP5GasMask;
-	class Canteen;
-	class MountainBag_ColorBase;
+	class GasMask;
 	class BalaclavaMask_ColorBase;
 	class BaseballCap_ColorBase;
 	class BDUPants;
 	class TacticalShirt_ColorBase;
-	class Grenade_Base;
-	class PlateCarrierPouches;
-	class MVS_Canteen_Base: Canteen
+	class PlateCarrierHolster;
+	class GorkaEJacket_Flat;
+	class CargoPants_Beige;
+	class TacticalShirt_Olive;
+	class MVS_Canteen_Base: Bottle_Base
 	{
 		scope=0;
 		displayName="MVS Canteen";
 		model="ModularVestSystem\data\canteen\MVS_Canteen.p3d";
-		hiddenSelections[] = {"zbytek",};
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\canteen\canteen_co.paa"
-		};	
-        hiddenSelectionsMaterials[]=
-        {
-            "ModularVestSystem\data\canteen\canteen.rvmat"
-        };
+		hiddenSelections[] = {"zbytek"};
+		inventorySlot[] = {"Belt_Left"};
+		weight = 250;
+		itemSize[] = {2,2};
+		varQuantityInit = 1000;
+		varQuantityMin = 0;
+		varQuantityMax = 1000;
+		destroyOnEmpty = 0;
+		varQuantityDestroyOnMin = 0;
+		varLiquidTypeInit = 512;
+		liquidContainerType = "1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 + 65536  - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256) -32768";
+		isMeleeWeapon = 1;
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\canteen\canteen_co.paa"};	
+        hiddenSelectionsMaterials[] = {"ModularVestSystem\data\canteen\canteen.rvmat"};
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -88,100 +93,178 @@ class cfgVehicles
                     };
 				};
 			};
-		};		
-	};
-	class MVS_Canteen_OD: MVS_Canteen_Base
-	{
-		scope=2;
-		displayName="MVS Canteen - OD";
-		hiddenSelectionsTextures[] = 
+		};
+		class MeleeModes
 		{
-			"ModularVestSystem\data\canteen\canteen_co.paa"
-		};		
-	};
-	class MVS_Canteen_ERDL: MVS_Canteen_Base
-	{
-		scope=2;
-		displayName="MVS Canteen - ERDL";
-		hiddenSelectionsTextures[] = 
+			class Default
+			{
+				ammo = "MeleeLightBlunt";
+				range = 1.0;
+			};
+			class Heavy
+			{
+				ammo = "MeleeLightBlunt_Heavy";
+				range = 1.0;
+			};
+			class Sprint
+			{
+				ammo = "MeleeLightBlunt_Heavy";
+				range = 2.8;
+			};
+		};
+		class AnimEvents
 		{
-			"ModularVestSystem\data\canteen\canteen_co_ERDL.paa"
+			class SoundWeapon
+			{
+				class Canteen_in_B
+				{
+					soundSet = "Canteen_in_B_SoundSet";
+					id = 202;
+				};
+				class Canteen_in_C
+				{
+					soundSet = "Canteen_in_C_SoundSet";
+					id = 203;
+				};
+				class WaterBottle_in_C1
+				{
+					soundSet = "WaterBottle_in_C1_SoundSet";
+					id = 204;
+				};
+				class Canteen_out_A
+				{
+					soundSet = "Canteen_out_A_SoundSet";
+					id = 205;
+				};
+				class Canteen_out_B
+				{
+					soundSet = "Canteen_out_B_SoundSet";
+					id = 206;
+				};
+				class WellPond_loop
+				{
+					soundSet = "WellPond_loop_SoundSet";
+					id = 209;
+				};
+				class WellBottle_loop
+				{
+					soundSet = "WellBottle_loop_SoundSet";
+					id = 210;
+				};
+			};
 		};		
 	};
-	class MVS_Canteen_Tan: MVS_Canteen_Base
-	{
-		scope=2;
-		displayName="MVS Canteen - Tan";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\canteen\canteen_co_Tan.paa"
-		};		
-	};
-	class MVS_Canteen_Black: MVS_Canteen_Base
-	{
-		scope=2;
-		displayName="MVS Canteen - Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\canteen\canteen_co_Black.paa"
-		};		
-	};
-	class MVS_Canteen_Snow: MVS_Canteen_Base
-	{
-		scope=2;
-		displayName="MVS Canteen - Snow";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\canteen\canteen_co_Snow.paa"
-		};		
-	};
-	class MVS_Canteen_Multicam: MVS_Canteen_Base
-	{
-		scope=2;
-		displayName="MVS Canteen - Multicam";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\canteen\canteen_co_MC.paa"
-		};		
-	};
-	class MVS_Canteen_Multicam_Tropic: MVS_Canteen_Base
-	{
-		scope=2;
-		displayName="MVS Canteen - Multicam Tropic";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\canteen\canteen_co_MC_Tropic.paa"
-		};		
-	};
-	class MVS_Canteen_Multicam_Black: MVS_Canteen_Base
-	{
-		scope=2;
-		displayName="MVS Canteen - Multicam Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\canteen\canteen_co_MC_Black.paa"
-		};		
-	};
-	class PlateCarrierVest;
-	class ModularVestSystem_Base: PlateCarrierVest
+	class ModularChestRig_Base: Clothing
 	{
 		scope = 0;
-		displayName = "$STR_CfgVehicles_PlateCarrierBlank0";
+		displayName = "Modular Vest";
+		descriptionShort = "The Modular Vest System (MVS) is a chest rig designed to accept multiple pouches to enhance warfighter capabilities.";
+		model = "ModularVestSystem\data\ModularVestRig_g.p3d";
+		attachments[] = {"Belt_Left","VestGrenadeA","modular_pouch_2","VestPouch","modular_pouch_4","modular_pouch_5","modular_pouch_6","patch_01"};
+		inventorySlot[] = {"Vest","MVS_vest"};
+		simulation = "clothing";
+		vehicleClass = "Clothing";
+		itemInfo[] = {"Clothing","Vest"};
+		weight = 2400;
+		itemSize[] = {4,4};
+		itemsCargoSize[] = {7,5};
+		quickBarBonus = 3;
+		varWetMax = 0.79;
+		heatIsolation = 0.75;
+		repairableWithKits[] = {3};
+		repairCosts[] = {25.0};
+		hiddenSelections[] = {"camoGround","camoMale","camoFemale"};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\MVS_Chestrig_co.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co.paa"};
+        hiddenSelectionsMaterials[]={"ModularVestSystem\data\vestTextures\chestrig.rvmat"};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=100;
+                    healthLevels[] = 
+                    {
+                        {1.0,{"ModularVestSystem\data\vestTextures\chestrig.rvmat"}},
+                        {0.7,{"ModularVestSystem\data\vestTextures\chestrig.rvmat"}},
+                        {0.5,{"ModularVestSystem\data\vestTextures\chestrig_damage.rvmat"}},
+                        {0.3,{"ModularVestSystem\data\vestTextures\chestrig_damage.rvmat"}},
+                        {0.0,{"ModularVestSystem\data\vestTextures\chestrig_destruct.rvmat"}}
+                    };
+				};
+			};
+		};		
+		class ClothingTypes
+		{
+			male = "ModularVestSystem\data\ModularVestRig.p3d";
+			female = "ModularVestSystem\data\ModularVestRig_f.p3d";
+		};
+	};
+	class MVS_ChestRig_OD: ModularChestRig_Base
+	{
+		scope = 2;
+		displayName = "MVS Chestrig - OD";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\MVS_Chestrig_co.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co.paa"};
+	};
+	class MVS_ChestRig_ERDL: ModularChestRig_Base
+	{
+		scope = 2;
+		displayName = "MVS Chestrig - ERDL";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_ERDL.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_ERDL.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_ERDL.paa"};
+	};
+	class MVS_ChestRig_Tan: ModularChestRig_Base
+	{
+		scope = 2;
+		displayName = "MVS Chestrig - Tan";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Tan.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Tan.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Tan.paa"};
+	};
+	class MVS_ChestRig_Black: ModularChestRig_Base
+	{
+		scope = 2;
+		displayName = "MVS Chestrig - Black";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Black.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Black.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Black.paa"};
+	};
+	class MVS_ChestRig_Snow: ModularChestRig_Base
+	{
+		scope = 2;
+		displayName = "MVS Chestrig - Snow";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Snow.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Snow.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Snow.paa"};
+	};
+	class MVS_ChestRig_Multicam: ModularChestRig_Base
+	{
+		scope = 2;
+		displayName = "MVS Chestrig - Multicam";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC.paa"};
+	};
+	class MVS_ChestRig_Multicam_Tropic: ModularChestRig_Base
+	{
+		scope = 2;
+		displayName = "MVS Chestrig - Multicam Tropic";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC_Tropic.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC_Tropic.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC_Tropic.paa"};
+	};
+	class MVS_ChestRig_Multicam_Black: ModularChestRig_Base
+	{
+		scope = 2;
+		displayName = "MVS Chestrig - Multicam Black";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC_Black.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC_Black.paa","ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC_Black.paa"};
+	};
+	class ModularVestSystem_Base: Clothing
+	{
+		scope = 0;
+		displayName = "Modular Plate Vest";
 		descriptionShort = "The Modular Vest System (MVS) is a plate carrier designed to accept multiple pouches to enhance warfighter capabilities.";
 		model = "ModularVestSystem\data\ModularVestSystem_g.p3d";
+		itemInfo[] = {"Clothing","Vest"};
 		attachments[] = {"Belt_Left","VestGrenadeA","VestPouch","modular_pouch_2","modular_pouch_4","modular_pouch_5","modular_pouch_6","patch_01"};
 		inventorySlot[] = {"Vest","MVS_vest"};
+		weight = 5500;
+		itemSize[] = {4,4};
+		varWetMax = 0.49;
+		heatIsolation = 0.7;
+		repairableWithKits[] = {3};
 		hiddenSelections[] = {"camoGround","camoMale","camoFemale"};
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co.paa",
-			"ModularVestSystem\data\vestTextures\vest_co.paa",
-			"ModularVestSystem\data\vestTextures\vest_co.paa"
-		};
-        hiddenSelectionsMaterials[]=
-        {
-            "ModularVestSystem\data\vestTextures\vest.rvmat"
-        };
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co.paa","ModularVestSystem\data\vestTextures\vest_co.paa","ModularVestSystem\data\vestTextures\vest_co.paa"};
+        hiddenSelectionsMaterials[]= {"ModularVestSystem\data\vestTextures\vest.rvmat"};
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -268,27 +351,87 @@ class cfgVehicles
 			male = "ModularVestSystem\data\ModularVestSystem.p3d";
 			female = "ModularVestSystem\data\ModularVestSystem.p3d";
 		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet = "SmershVest_pickup_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "SmershVest_drop_SoundSet";
+					id = 898;
+				};
+			};
+		};
 	};
-	class HighCapacityVest_ColorBase;
-	class ModularVestSystem_Heavy: PlateCarrierVest
+	class MVS_Combat_Vest_OD: ModularVestSystem_Base
+	{
+		scope = 2;
+		displayName = "MVS - OD";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co.paa","ModularVestSystem\data\vestTextures\vest_co.paa","ModularVestSystem\data\vestTextures\vest_co.paa"};
+	};
+	class MVS_Combat_Vest_ERDL: ModularVestSystem_Base
+	{
+		scope = 2;
+		displayName = "MVS - ERDL";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_ERDL.paa","ModularVestSystem\data\vestTextures\vest_co_ERDL.paa","ModularVestSystem\data\vestTextures\vest_co_ERDL.paa"};
+	};
+	class MVS_Combat_Vest_Tan: ModularVestSystem_Base
+	{
+		scope = 2;
+		displayName = "MVS - Tan";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_tan.paa","ModularVestSystem\data\vestTextures\vest_co_tan.paa","ModularVestSystem\data\vestTextures\vest_co_tan.paa"};
+	};
+	class MVS_Combat_Vest_Black: ModularVestSystem_Base
+	{
+		scope = 2;
+		displayName = "MVS - Black";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_2.paa","ModularVestSystem\data\vestTextures\vest_co_2.paa","ModularVestSystem\data\vestTextures\vest_co_2.paa"};
+	};
+	class MVS_Combat_Vest_Snow: ModularVestSystem_Base
+	{
+		scope = 2;
+		displayName = "MVS - Snow";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_snow.paa","ModularVestSystem\data\vestTextures\vest_co_snow.paa","ModularVestSystem\data\vestTextures\vest_co_snow.paa"};
+	};
+	class MVS_Combat_Vest_Multicam: ModularVestSystem_Base
+	{
+		scope = 2;
+		displayName = "MVS - Multicam";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC.paa","ModularVestSystem\data\vestTextures\vest_co_MC.paa","ModularVestSystem\data\vestTextures\vest_co_MC.paa"};
+	};
+	class MVS_Combat_Vest_Multicam_Black: ModularVestSystem_Base
+	{
+		scope = 2;
+		displayName = "MVS - Multicam Black";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa","ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa","ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa"};
+	};
+	class MVS_Combat_Vest_Multicam_Tropic: ModularVestSystem_Base
+	{
+		scope = 2;
+		displayName = "MVS - Multicam Tropic";
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa","ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa","ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa"};
+	};
+	class ModularVestSystem_Heavy: Clothing
 	{
 		scope = 0;
-		displayName = "$STR_CfgVehicles_PlateCarrierBlank0";
+		displayName = "Heavy Modular Vest";
 		descriptionShort = "The Modular Vest System (MVS) is a plate carrier designed to accept multiple pouches to enhance warfighter capabilities.";
 		model = "ModularVestSystem\data\ModularVestSystemHeavy_g.p3d";
 		attachments[] = {"Belt_Left","VestGrenadeA","modular_pouch_11","modular_pouch_6","Belt_Right","patch_01"};
-		inventorySlot[] = {"Vest","MVS_vest"};		
+		inventorySlot[] = {"Vest","MVS_vest"};
+		weight = 12000;
+		itemSize[] = {5,5};
+		varWetMax = 0.49;
+		heatIsolation = 0.7;
+		repairableWithKits[] = {3};		
 		hiddenSelections[] = {"camoGround","camoMale","camoFemale"};
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\MVSHeavy_co.paa",
-			"ModularVestSystem\data\vestTextures\MVSHeavy_co.paa",
-			"ModularVestSystem\data\vestTextures\MVSHeavy_co.paa"
-		};	
-        hiddenSelectionsMaterials[]=
-        {
-            "ModularVestSystem\data\vestTextures\MVSHeavy.rvmat"
-        };
+		hiddenSelectionsTextures[] ={"ModularVestSystem\data\vestTextures\MVSHeavy_co.paa","ModularVestSystem\data\vestTextures\MVSHeavy_co.paa","ModularVestSystem\data\vestTextures\MVSHeavy_co.paa"};	
+        hiddenSelectionsMaterials[]={"ModularVestSystem\data\vestTextures\MVSHeavy.rvmat"};
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -374,6 +517,22 @@ class cfgVehicles
 		{
 			male = "ModularVestSystem\data\ModularVestSystemHeavy.p3d";
 			female = "ModularVestSystem\data\ModularVestSystemHeavy.p3d";
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet = "SmershVest_pickup_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "SmershVest_drop_SoundSet";
+					id = 898;
+				};
+			};
 		};
 	};
 	class MVS_Combat_Vest_Heavy_OD: ModularVestSystem_Heavy
@@ -464,225 +623,6 @@ class cfgVehicles
 			"ModularVestSystem\data\vestTextures\MVSHeavy_co_MC_Black.paa"
 		};
 	};
-	class MVS_Combat_Vest_OD: ModularVestSystem_Base
-	{
-		scope = 2;
-		displayName = "MVS - OD";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co.paa",
-			"ModularVestSystem\data\vestTextures\vest_co.paa",
-			"ModularVestSystem\data\vestTextures\vest_co.paa"
-		};
-	};
-	class MVS_Combat_Vest_ERDL: ModularVestSystem_Base
-	{
-		scope = 2;
-		displayName = "MVS - ERDL";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_ERDL.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_ERDL.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_ERDL.paa"
-		};
-	};
-	class MVS_Combat_Vest_Tan: ModularVestSystem_Base
-	{
-		scope = 2;
-		displayName = "MVS - Tan";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_tan.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_tan.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_tan.paa"
-		};
-	};
-	class MVS_Combat_Vest_Black: ModularVestSystem_Base
-	{
-		scope = 2;
-		displayName = "MVS - Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_2.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_2.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_2.paa"
-		};
-	};
-	class MVS_Combat_Vest_Snow: ModularVestSystem_Base
-	{
-		scope = 2;
-		displayName = "MVS - Snow";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_snow.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_snow.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_snow.paa"
-		};
-	};
-	class MVS_Combat_Vest_Multicam: ModularVestSystem_Base
-	{
-		scope = 2;
-		displayName = "MVS - Multicam";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_MC.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_MC.paa"
-		};
-	};
-	class MVS_Combat_Vest_Multicam_Black: ModularVestSystem_Base
-	{
-		scope = 2;
-		displayName = "MVS - Multicam Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa"
-		};
-	};
-	class MVS_Combat_Vest_Multicam_Tropic: ModularVestSystem_Base
-	{
-		scope = 2;
-		displayName = "MVS - Multicam Tropic";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa",
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa"
-		};
-	};
-	class ModularChestRig_Base: HighCapacityVest_ColorBase
-	{
-		scope = 0;
-		displayName = "$STR_CfgVehicles_PlateCarrierBlank0";
-		descriptionShort = "The Modular Vest System (MVS) is a chest rig designed to accept multiple pouches to enhance warfighter capabilities.";
-		model = "ModularVestSystem\data\ModularVestRig_g.p3d";
-		attachments[] = {"Belt_Left","VestGrenadeA","modular_pouch_2","VestPouch","modular_pouch_4","modular_pouch_5","modular_pouch_6","patch_01"};
-		inventorySlot[] = {"Vest","MVS_vest"};
-		hiddenSelections[] = {"camoGround","camoMale","camoFemale"};
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co.paa"
-		};
-        hiddenSelectionsMaterials[]=
-        {
-            "ModularVestSystem\data\vestTextures\chestrig.rvmat"
-        };
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints=100;
-                    healthLevels[] = 
-                    {
-                        {1.0,{"ModularVestSystem\data\vestTextures\chestrig.rvmat"}},
-                        {0.7,{"ModularVestSystem\data\vestTextures\chestrig.rvmat"}},
-                        {0.5,{"ModularVestSystem\data\vestTextures\chestrig_damage.rvmat"}},
-                        {0.3,{"ModularVestSystem\data\vestTextures\chestrig_damage.rvmat"}},
-                        {0.0,{"ModularVestSystem\data\vestTextures\chestrig_destruct.rvmat"}}
-                    };
-				};
-			};
-		};		
-		class ClothingTypes
-		{
-			male = "ModularVestSystem\data\ModularVestRig.p3d";
-			female = "ModularVestSystem\data\ModularVestRig_f.p3d";
-		};
-	};
-	class MVS_ChestRig_OD: ModularChestRig_Base
-	{
-		scope = 2;
-		displayName = "MVS Chestrig - OD";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co.paa"
-		};
-	};
-	class MVS_ChestRig_ERDL: ModularChestRig_Base
-	{
-		scope = 2;
-		displayName = "MVS Chestrig - ERDL";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_ERDL.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_ERDL.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_ERDL.paa"
-		};
-	};
-	class MVS_ChestRig_Tan: ModularChestRig_Base
-	{
-		scope = 2;
-		displayName = "MVS Chestrig - Tan";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Tan.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Tan.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Tan.paa"
-		};
-	};
-	class MVS_ChestRig_Black: ModularChestRig_Base
-	{
-		scope = 2;
-		displayName = "MVS Chestrig - Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Black.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Black.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Black.paa"
-		};
-	};
-	class MVS_ChestRig_Snow: ModularChestRig_Base
-	{
-		scope = 2;
-		displayName = "MVS Chestrig - Snow";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Snow.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Snow.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_Snow.paa"
-		};
-	};
-	class MVS_ChestRig_Multicam: ModularChestRig_Base
-	{
-		scope = 2;
-		displayName = "MVS Chestrig - Multicam";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC.paa"
-		};
-	};
-	class MVS_ChestRig_Multicam_Tropic: ModularChestRig_Base
-	{
-		scope = 2;
-		displayName = "MVS Chestrig - Multicam Tropic";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC_Tropic.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC_Tropic.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC_Tropic.paa"
-		};
-	};
-	class MVS_ChestRig_Multicam_Black: ModularChestRig_Base
-	{
-		scope = 2;
-		displayName = "MVS Chestrig - Multicam Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC_Black.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC_Black.paa",
-			"ModularVestSystem\data\vestTextures\MVS_Chestrig_co_MC_Black.paa"
-		};
-	};
 	class MVS_Pouch_Base: Container_Base
 	{
 		scope = 0;
@@ -693,25 +633,14 @@ class cfgVehicles
 		itemSize[] = {4,3};
 		itemsCargoSize[] = {6,4};
 		inventorySlot[] = {"VestPouch","modular_pouch_2"};
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co.paa"
-		};
 		weight=250;
 		repairableWithKits[]={5,2};
 		repairCosts[]={30,25};
 		allowOwnedCargoManipulation=1;
 		randomQuantity=2;
-		lootTag[]=
-		{
-			"Military_east",
-			"Military_west"
-		};
-        hiddenSelectionsMaterials[]=
-        {
-            "ModularVestSystem\data\vestTextures\vest.rvmat"
-        };
+		hiddenSelections[] = {"zbytek"};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co.paa"};
+        hiddenSelectionsMaterials[]={"ModularVestSystem\data\vestTextures\vest.rvmat"};
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -757,82 +686,56 @@ class cfgVehicles
 		itemsCargoSize[] = {6,4};
 		inventorySlot[] = {"VestPouch","modular_pouch_2"};
 		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co.paa"};
+		hiddenSelectionsMaterials[]={"ModularVestSystem\data\vestTextures\vest.rvmat"};
 	};
 	class MVS_Magazine_Pouch_OD: Modular_Pouch_Base
 	{
 		scope = 2;
 		displayName = "MVS Magazine Pouch - OD";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co.paa"};
 	};
 	class MVS_Magazine_Pouch_ERDL: Modular_Pouch_Base
 	{
 		scope = 2;
 		displayName = "MVS Magazine Pouch - ERDL";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_ERDL.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_ERDL.paa"};
 	};
 	class MVS_Magazine_Pouch_Tan: Modular_Pouch_Base
 	{
 		scope = 2;
 		displayName = "MVS Magazine Pouch - Tan";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_tan.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_tan.paa"};
 	};	
 	class MVS_Magazine_Pouch_Black: Modular_Pouch_Base
 	{
 		scope = 2;
 		displayName = "MVS Magazine Pouch - Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_2.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_2.paa"};
 	};
 	class MVS_Magazine_Pouch_Snow: Modular_Pouch_Base
 	{
 		scope = 2;
 		displayName = "MVS Magazine Pouch - Snow";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_snow.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_snow.paa"};
 	};
 	class MVS_Magazine_Pouch_Multicam: Modular_Pouch_Base
 	{
 		scope = 2;
 		displayName = "MVS Magazine Pouch - Multicam";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC.paa"};
 	};
 	class MVS_Magazine_Pouch_Multicam_Black: Modular_Pouch_Base
 	{
 		scope = 2;
 		displayName = "MVS Magazine Pouch - Multicam Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa"};
 	};
 	class MVS_Magazine_Pouch_Multicam_Tropic: Modular_Pouch_Base
 	{
 		scope = 2;
 		displayName = "MVS Magazine Pouch - Multicam Tropic";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa"};
 	};
 	class MVS_Molle_Panel_Base: MVS_Pouch_Base
 	{
@@ -850,10 +753,8 @@ class cfgVehicles
 		inventorySlot[] = {"modular_pouch_10"};
 		attachments[] = {"VestGrenadeA","VestGrenadeB","VestGrenadeC","VestGrenadeD"};
 		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co.paa"};
+		hiddenSelectionsMaterials[]={"ModularVestSystem\data\vestTextures\vest.rvmat"};
 		class AnimEvents
 		{
 			class SoundWeapon
@@ -875,73 +776,49 @@ class cfgVehicles
 	{
 		scope = 2;
 		displayName = "MVS Molle Panel - OD";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co.paa"};
 	};
 	class MVS_Molle_Panel_Black: MVS_Molle_Panel_Base
 	{
 		scope = 2;
 		displayName = "MVS Molle Panel - Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_2.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_2.paa"};
 	};
 	class MVS_Molle_Panel_Tan: MVS_Molle_Panel_Base
 	{
 		scope = 2;
 		displayName = "MVS Molle Panel - Tan";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_Tan.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_Tan.paa"};
 	};
 	class MVS_Molle_Panel_ERDL: MVS_Molle_Panel_Base
 	{
 		scope = 2;
 		displayName = "MVS Molle Panel - ERDL";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_ERDL.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_ERDL.paa"};
 	};
 	class MVS_Molle_Panel_Snow: MVS_Molle_Panel_Base
 	{
 		scope = 2;
 		displayName = "MVS Molle Panel - Snow";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_Snow.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_Snow.paa"};
 	};
 	class MVS_Molle_Panel_Multicam: MVS_Molle_Panel_Base
 	{
 		scope = 2;
 		displayName = "MVS Molle Panel - Multicam";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC.paa"};
 	};
 	class MVS_Molle_Panel_Multicam_Tropic: MVS_Molle_Panel_Base
 	{
 		scope = 2;
 		displayName = "MVS Molle Panel - Multicam Tropic";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa"};
 	};
 	class MVS_Molle_Panel_Multicam_Black: MVS_Molle_Panel_Base
 	{
 		scope = 2;
 		displayName = "MVS Molle Panel - Multicam Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa"};
 	};	
 	class Modular_Pouch_Base_Taco: MVS_Pouch_Base
 	{
@@ -949,26 +826,18 @@ class cfgVehicles
 		displayName = "MVS Raid Pouch";
 		descriptionShort = "The MVS Raid pouch, capable of holding Pliers, a Screwdriver, and lockpick";
 		model = "ModularVestSystem\data\modular_pouch_12.p3d";
-		attachments[] = {"magazine4","magazine5","magazine7","MVS_Screwdriver","MVS_Pliers","Screwdriver1","Pliers1","MVS_Lockpick"};
+		attachments[] = {"MVS_Screwdriver","MVS_Pliers","Screwdriver1","Pliers1","MVS_Lockpick"};
 		rotationFlags=0;		
 		itemSize[] = {4,3};
 		itemsCargoSize[] = {6,4};
 		inventorySlot[] = {"modular_pouch_2","modular_pouch_12","VestPouch"};
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\taco_co.paa"
-		};
 		weight=250;
 		repairableWithKits[]={5,2};
 		repairCosts[]={30,25};
 		allowOwnedCargoManipulation=1;
 		randomQuantity=2;
-		lootTag[]=
-		{
-			"Military_east",
-			"Military_west"
-		};
+		hiddenSelections[] = {"zbytek"};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\taco_co.paa"};
 		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\vestTextures\taco.rvmat"};
 		class DamageSystem
 		{
@@ -1009,73 +878,49 @@ class cfgVehicles
 	{
 		scope = 2;
 		displayName = "MVS Raid Pouch - OD";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\taco_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\taco_co.paa"};
 	};	
 	class MVS_Taco_Pouch_ERDL: Modular_Pouch_Base_Taco
 	{
 		scope = 2;
 		displayName = "MVS Raid Pouch - ERDL";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\taco_co_ERDL.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\taco_co_ERDL.paa"};
 	};	
 	class MVS_Taco_Pouch_Tan: Modular_Pouch_Base_Taco
 	{
 		scope = 2;
 		displayName = "MVS Raid Pouch - Tan";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\taco_co_tan.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\taco_co_tan.paa"};
 	};	
 	class MVS_Taco_Pouch_Black: Modular_Pouch_Base_Taco
 	{
 		scope = 2;
 		displayName = "MVS Raid Pouch - Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\taco_co_black.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\taco_co_black.paa"};
 	};
 	class MVS_Taco_Pouch_Snow: Modular_Pouch_Base_Taco
 	{
 		scope = 2;
 		displayName = "MVS Raid Pouch - Snow";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\taco_co_snow.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\taco_co_snow.paa"};
 	};
 	class MVS_Taco_Pouch_Multicam: Modular_Pouch_Base_Taco
 	{
 		scope = 2;
 		displayName = "MVS Raid Pouch - Multicam";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\taco_co_MC.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\taco_co_MC.paa"};
 	};
 	class MVS_Taco_Pouch_Multicam_Tropic: Modular_Pouch_Base_Taco
 	{
 		scope = 2;
 		displayName = "MVS Raid Pouch - Multicam Tropic";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\taco_co_MC_Tropic.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\taco_co_MC_Tropic.paa"};
 	};
 	class MVS_Taco_Pouch_Multicam_Black: Modular_Pouch_Base_Taco
 	{
 		scope = 2;
 		displayName = "MVS Raid Pouch - Multicam Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\taco_co_MC_Black.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\taco_co_MC_Black.paa"};
 	};
 	class Modular_Pouch_Base_Admin: MVS_Pouch_Base
 	{
@@ -1086,21 +931,14 @@ class cfgVehicles
 		itemSize[] = {2,3};
 		itemsCargoSize[] = {3,4};
 		inventorySlot[] = {"modular_pouch_4","modular_pouch_9","modular_pouch_10","modular_pouch_13"};
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co.paa"
-		};
 		weight=250;
 		repairableWithKits[]={5,2};
 		repairCosts[]={30,25};
 		allowOwnedCargoManipulation=1;
 		randomQuantity=2;
-		lootTag[]=
-		{
-			"Military_east",
-			"Military_west"
-		};
+		hiddenSelections[] = {"zbytek"};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co.paa"};
+		hiddenSelectionsMaterials[]={"ModularVestSystem\data\vestTextures\vest.rvmat"};
 		class AnimEvents
 		{
 			class SoundWeapon
@@ -1118,77 +956,54 @@ class cfgVehicles
 			};
 		};
 	};
+	
 	class MVS_Admin_Pouch_OD: Modular_Pouch_Base_Admin
 	{
 		scope = 2;
 		displayName = "MVS Admin Pouch - OD";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co.paa"};
 	};	
 	class MVS_Admin_Pouch_ERDL: Modular_Pouch_Base_Admin
 	{
 		scope = 2;
 		displayName = "MVS Admin Pouch - ERDL";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_ERDL.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_ERDL.paa"};
 	};	
 	class MVS_Admin_Pouch_Tan: Modular_Pouch_Base_Admin
 	{
 		scope = 2;
 		displayName = "MVS Admin Pouch - Tan";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_tan.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_tan.paa"};
 	};		
 	class MVS_Admin_Pouch_Black: Modular_Pouch_Base_Admin
 	{
 		scope = 2;
 		displayName = "MVS Admin Pouch - Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_2.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_2.paa"};
 	};
 	class MVS_Admin_Pouch_Snow: Modular_Pouch_Base_Admin
 	{
 		scope = 2;
 		displayName = "MVS Admin Pouch - Snow";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_snow.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_snow.paa"};
 	};
 	class MVS_Admin_Pouch_Multicam: Modular_Pouch_Base_Admin
 	{
 		scope = 2;
 		displayName = "MVS Admin Pouch - Multicam";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC.paa"};
 	};
 	class MVS_Admin_Pouch_Multicam_Black: Modular_Pouch_Base_Admin
 	{
 		scope = 2;
 		displayName = "MVS Admin Pouch - Multicam Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa"};
 	};
 	class MVS_Admin_Pouch_Multicam_Tropic: Modular_Pouch_Base_Admin
 	{
 		scope = 2;
 		displayName = "MVS Admin Pouch - Multicam Tropic";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa"};
 	};
 	class Modular_Pouch_Base_Heavy: MVS_Pouch_Base
 	{
@@ -1199,21 +1014,13 @@ class cfgVehicles
 		itemSize[] = {4,5};
 		itemsCargoSize[] = {6,5};
 		inventorySlot[] = {"modular_pouch_11"};
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vestheavy_co.paa"
-		};
 		weight=250;
 		repairableWithKits[]={5,2};
 		repairCosts[]={30,25};
 		allowOwnedCargoManipulation=1;
 		randomQuantity=2;
-		lootTag[]=
-		{
-			"Military_east",
-			"Military_west"
-		};
+		hiddenSelections[] = {"zbytek"};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vestheavy_co.paa"};
 		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\vestTextures\vestheavy.rvmat"};
 		class DamageSystem
 		{
@@ -1254,74 +1061,50 @@ class cfgVehicles
 	{
 		scope = 2;
 		displayName = "MVS Heavy LMG Pouch - OD";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vestheavy_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vestheavy_co.paa"};
 	};	
 	class MVS_Heavy_Pouch_ERDL: Modular_Pouch_Base_Heavy
 	{
 		scope = 2;
 		displayName = "MVS Heavy LMG Pouch - ERDL";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vestheavy_co_ERDL.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vestheavy_co_ERDL.paa"};
 	};
 	
 	class MVS_Heavy_Pouch_Tan: Modular_Pouch_Base_Heavy
 	{
 		scope = 2;
 		displayName = "MVS Heavy LMG Pouch - Tan";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vestheavy_co_tan.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vestheavy_co_tan.paa"};
 	};		
 	class MVS_Heavy_Pouch_Black: Modular_Pouch_Base_Heavy
 	{
 		scope = 2;
 		displayName = "MVS Heavy LMG Pouch - Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vestheavy_co_2.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vestheavy_co_2.paa"};
 	};
 	class MVS_Heavy_Pouch_Snow: Modular_Pouch_Base_Heavy
 	{
 		scope = 2;
 		displayName = "MVS Heavy LMG Pouch - Snow";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vestheavy_co_snow.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vestheavy_co_snow.paa"};
 	};
 	class MVS_Heavy_Pouch_Multicam: Modular_Pouch_Base_Heavy
 	{
 		scope = 2;
 		displayName = "MVS Heavy LMG Pouch - Multicam";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vestheavy_co_MC.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vestheavy_co_MC.paa"};
 	};
 	class MVS_Heavy_Pouch_Multicam_Tropic: Modular_Pouch_Base_Heavy
 	{
 		scope = 2;
 		displayName = "MVS Heavy LMG Pouch - Multicam Tropic";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vestheavy_co_MC_Tropic.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vestheavy_co_MC_Tropic.paa"};
 	};
 	class MVS_Heavy_Pouch_Multicam_Black: Modular_Pouch_Base_Heavy
 	{
 		scope = 2;
 		displayName = "MVS Heavy LMG Pouch - Multicam Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vestheavy_co_MC_Black.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vestheavy_co_MC_Black.paa"};
 	};
 	class Modular_Pouch_Base_Utility: MVS_Pouch_Base
 	{
@@ -1332,93 +1115,62 @@ class cfgVehicles
 		itemSize[] = {1,3};
 		itemsCargoSize[] = {1,3};
 		inventorySlot[] = {"modular_pouch_5"};
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co.paa"
-		};
 		weight=250;
 		repairableWithKits[]={5,2};
 		repairCosts[]={30,25};
 		allowOwnedCargoManipulation=1;
 		randomQuantity=2;
-		lootTag[]=
-		{
-			"Military_east",
-			"Military_west"
-		};
+		hiddenSelections[] = {"zbytek"};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co.paa"};
+		hiddenSelectionsMaterials[]={"ModularVestSystem\data\vestTextures\vest.rvmat"};
 	};
 	class MVS_Utility_Pouch_OD: Modular_Pouch_Base_Utility
 	{
 		scope = 2;
 		displayName = "MVS Utility Pouch - OD";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co.paa"};
 	};
 	class MVS_Utility_Pouch_ERDL: Modular_Pouch_Base_Utility
 	{
 		scope = 2;
 		displayName = "MVS Utility Pouch - ERDL";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_ERDL.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_ERDL.paa"};
 	};
 	class MVS_Utility_Pouch_Tan: Modular_Pouch_Base_Utility
 	{
 		scope = 2;
 		displayName = "MVS Utility Pouch - Tan";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_tan.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_tan.paa"};
 	};	
 	class MVS_Utility_Pouch_Black: Modular_Pouch_Base_Utility
 	{
 		scope = 2;
 		displayName = "MVS Utility Pouch - Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_2.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_2.paa"};
 	};
 	class MVS_Utility_Pouch_Snow: Modular_Pouch_Base_Utility
 	{
 		scope = 2;
 		displayName = "MVS Utility Pouch - Snow";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_snow.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_snow.paa"};
 	};
 	class MVS_Utility_Pouch_Multicam: Modular_Pouch_Base_Utility
 	{
 		scope = 2;
 		displayName = "MVS Utility Pouch - Multicam";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC.paa"};
 	};
 	class MVS_Utility_Pouch_Multicam_Black: Modular_Pouch_Base_Utility
 	{
 		scope = 2;
 		displayName = "MVS Utility Pouch - Multicam Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC_Black.paa"};
 	};
 	class MVS_Utility_Pouch_Multicam_Tropic: Modular_Pouch_Base_Utility
 	{
 		scope = 2;
 		displayName = "MVS Utility Pouch - Multicam Tropic";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic.paa"};
 	};
 	class Modular_Pouch_Base_Medical: MVS_Pouch_Base
 	{
@@ -1430,112 +1182,91 @@ class cfgVehicles
 		itemsCargoSize[] = {2,4};
 		attachments[]={"morphine","epinephrine","MedicalBandage"};
 		inventorySlot[] = {"modular_pouch_6","modular_pouch_9","modular_pouch_10","modular_pouch_13"};
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_medical.paa"
-		};
 		weight=250;
 		repairableWithKits[]={5,2};
 		repairCosts[]={30,25};
 		allowOwnedCargoManipulation=1;
 		randomQuantity=2;
-		lootTag[]=
-		{
-			"Military_east",
-			"Military_west"
-		};
+		hiddenSelections[] = {"zbytek"};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_medical.paa"};
 	};
 	class MVS_Medical_Pouch_OD: Modular_Pouch_Base_Medical
 	{
 		scope = 2;
 		displayName = "MVS Medical Pouch - OD";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_medical.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_medical.paa"};
 	};
 	class MVS_Medical_Pouch_ERDL: Modular_Pouch_Base_Medical
 	{
 		scope = 2;
 		displayName = "MVS Medical Pouch - ERDL";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_ERDL_medical.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_ERDL_medical.paa"};
 	};
 	class MVS_Medical_Pouch_Tan: Modular_Pouch_Base_Medical
 	{
 		scope = 2;
 		displayName = "MVS Medical Pouch - Tan";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_tan_medical.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_tan_medical.paa"};
 	};	
 	class MVS_Medical_Pouch_Black: Modular_Pouch_Base_Medical
 	{
 		scope = 2;
 		displayName = "MVS Medical Pouch - Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_2_medical.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_2_medical.paa"};
 	};
 	class MVS_Medical_Pouch_Snow: Modular_Pouch_Base_Medical
 	{
 		scope = 2;
 		displayName = "MVS Medical Pouch - Snow";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_snow_medical.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_snow_medical.paa"};
 	};
 	class MVS_Medical_Pouch_Multicam: Modular_Pouch_Base_Medical
 	{
 		scope = 2;
 		displayName = "MVS Medical Pouch - Multicam";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC_medical.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC_medical.paa"};
 	};
 	class MVS_Medical_Pouch_Multicam_Black: Modular_Pouch_Base_Medical
 	{
 		scope = 2;
 		displayName = "MVS Medical Pouch - Multicam Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Black_medical.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC_Black_medical.paa"};
 	};
 	class MVS_Medical_Pouch_Multicam_Tropic: Modular_Pouch_Base_Medical
 	{
 		scope = 2;
 		displayName = "MVS Medical Pouch - Multicam Tropic";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic_medical.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\vestTextures\vest_co_MC_Tropic_medical.paa"};
 	};
-	class Mich2001Helmet;
-	class MVS_Helmet_Base: Mich2001Helmet
+	class MVS_Helmet_Base: Clothing
 	{
 		scope = 0;
 		displayName = "MVS Combat Helmet";
 		descriptionShort = "The MICH-style combat helmet offers good ballistic protection, much like the MICH 2001 combat helmet";
-		attachments[]={"NVG","patch_03","MVSBattery1","MVSBattery2","helmetFlashlight"};
-		inventorySlot[] = {"Headgear","MVS_helmet"};
 		model = "ModularVestSystem\data\Helmets\Combat_Helmet_g.p3d";
-		hiddenSelections[] = {"camoground","camomale","camofemale","zbytek"};
-		hiddenSelectionsTextures[] = 
+		repairableWithKits[] = {8};
+		repairCosts[] = {25.0};
+		inventorySlot[] = {"Headgear","MVS_helmet"};
+		simulation = "clothing";
+		vehicleClass = "Clothing";
+		itemInfo[] = {"Clothing","Headgear"};
+		attachments[]={"NVG","patch_03","MVSBattery1","MVSBattery2","helmetFlashlight"};
+		rotationFlags = 2;
+		weight = 1200;
+		itemSize[] = {4,3};
+		noMask = 0;
+		varWetMax = 0.249;
+		heatIsolation = 0.25;
+		visibilityModifier = 0.95;
+		headSelectionsToHide[] = {"Clipping_Mich2001"};
+		class ClothingTypes
 		{
-			"ModularVestSystem\data\Helmets\do_helmets_co.paa",
-			"ModularVestSystem\data\Helmets\do_helmets_co.paa",
-			"ModularVestSystem\data\Helmets\do_helmets_co.paa",
-			"modularvestsystem\data\helmets\do_helmets_2_co.paa"
+			male = "ModularVestSystem\data\Helmets\Combat_Helmet_1.p3d";
+			female = "ModularVestSystem\data\Helmets\Combat_Helmet_1.p3d";
 		};
-		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Helmets\do_helmet.rvmat"};	
+		hiddenSelections[] = {"camoground","camomale","camofemale","zbytek"};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\do_helmets_co.paa","ModularVestSystem\data\Helmets\do_helmets_co.paa","ModularVestSystem\data\Helmets\do_helmets_co.paa","modularvestsystem\data\helmets\do_helmets_2_co.paa"};
+		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Helmets\do_helmet.rvmat"};
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -1553,12 +1284,86 @@ class cfgVehicles
 					};
 				};
 			};
-		};		
-		class ClothingTypes
-		{
-			male = "ModularVestSystem\data\Helmets\Combat_Helmet_1.p3d";
-			female = "ModularVestSystem\data\Helmets\Combat_Helmet_1.p3d";
 		};
+		class GlobalArmor
+		{
+			class Projectile
+			{
+				class Health
+				{
+					damage = 0.35;
+				};
+				class Blood
+				{
+					damage = 0.0;
+				};
+				class Shock
+				{
+					damage = 0.5;
+				};
+			};
+			class Melee
+			{
+				class Health
+				{
+					damage = 0.25;
+				};
+				class Blood
+				{
+					damage = 0.0;
+				};
+				class Shock
+				{
+					damage = 0.25;
+				};
+			};
+			class Infected
+			{
+				class Health
+				{
+					damage = 0.25;
+				};
+				class Blood
+				{
+					damage = 0.0;
+				};
+				class Shock
+				{
+					damage = 0.25;
+				};
+			};
+			class FragGrenade
+			{
+				class Health
+				{
+					damage = 0.5;
+				};
+				class Blood
+				{
+					damage = 0.0;
+				};
+				class Shock
+				{
+					damage = 0.26;
+				};
+			};
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet = "pickUpPot_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "BallisticHelmet_drop_SoundSet";
+					id = 898;
+				};
+			};
+		};		
 	};
 	class MVS_Helmet_01_Tan: MVS_Helmet_Base
 	{
@@ -1673,17 +1478,30 @@ class cfgVehicles
 		scope = 0;
 		displayName = "MVS Combat Helmet 2";
 		descriptionShort = "The MICH-style combat helmet offers good ballistic protection, much like the MICH 2001 combat helmet";
-		attachments[]={"NVG","patch_03","helmetFlashlight"};
-		inventorySlot[] = {"Headgear","MVS_helmet"};
 		model = "ModularVestSystem\data\Helmets\Combat_Helmet_2_g.p3d";
-		hiddenSelections[] = {"camoground","camomale","camofemale"};
-		hiddenSelectionsTextures[] = 
+		attachments[]={"NVG","patch_03","helmetFlashlight"};
+		repairableWithKits[] = {8};
+		repairCosts[] = {25.0};
+		inventorySlot[] = {"Headgear","MVS_helmet"};
+		simulation = "clothing";
+		vehicleClass = "Clothing";
+		itemInfo[] = {"Clothing","Headgear"};
+		rotationFlags = 2;
+		weight = 1200;
+		itemSize[] = {4,3};
+		noMask = 0;
+		varWetMax = 0.249;
+		heatIsolation = 0.25;
+		visibilityModifier = 0.95;
+		headSelectionsToHide[] = {"Clipping_Mich2001"};
+		class ClothingTypes
 		{
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_OD_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_OD_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_OD_co.paa"
+			male = "ModularVestSystem\data\Helmets\Combat_Helmet_2.p3d";
+			female = "ModularVestSystem\data\Helmets\Combat_Helmet_2.p3d";
 		};
-		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Helmets\mvs_helmet_2.rvmat"};	
+		hiddenSelections[] = {"camoground","camomale","camofemale"};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\MVS_Helmet_2_OD_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_OD_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_OD_co.paa"};
+		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Helmets\mvs_helmet_2.rvmat"};		
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -1701,117 +1519,148 @@ class cfgVehicles
 					};
 				};
 			};
+			class GlobalArmor
+			{
+				class Projectile
+				{
+					class Health
+					{
+						damage = 0.35;
+					};
+					class Blood
+					{
+						damage = 0.0;
+					};
+					class Shock
+					{
+						damage = 0.5;
+					};
+				};
+				class Melee
+				{
+					class Health
+					{
+						damage = 0.25;
+					};
+					class Blood
+					{
+						damage = 0.0;
+					};
+					class Shock
+					{
+						damage = 0.25;
+					};
+				};
+				class Infected
+				{
+					class Health
+					{
+						damage = 0.25;
+					};
+					class Blood
+					{
+						damage = 0.0;
+					};
+					class Shock
+					{
+						damage = 0.25;
+					};
+				};
+				class FragGrenade
+				{
+					class Health
+					{
+						damage = 0.5;
+					};
+					class Blood
+					{
+						damage = 0.0;
+					};
+					class Shock
+					{
+						damage = 0.26;
+					};
+				};
+			};
 		};		
-		class ClothingTypes
-		{
-			male = "ModularVestSystem\data\Helmets\Combat_Helmet_2.p3d";
-			female = "ModularVestSystem\data\Helmets\Combat_Helmet_2.p3d";
-		};
 	};
 	class MVS_Helmet_02_OD: MVS_Helmet_2_Base
 	{
 		scope = 2;
 		displayName = "MVS Combat Helmet - OD";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_OD_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_OD_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_OD_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\MVS_Helmet_2_OD_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_OD_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_OD_co.paa"};
 	};
 	class MVS_Helmet_02_Tan: MVS_Helmet_2_Base
 	{
 		scope = 2;
 		displayName = "MVS Combat Helmet - Tan";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_Tan_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_Tan_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_Tan_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\MVS_Helmet_2_Tan_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_Tan_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_Tan_co.paa"};
 	};
 	class MVS_Helmet_02_Black: MVS_Helmet_2_Base
 	{
 		scope = 2;
 		displayName = "MVS Combat Helmet - Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_Black_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_Black_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_Black_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\MVS_Helmet_2_Black_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_Black_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_Black_co.paa"};
 	};
 	class MVS_Helmet_02_Multicam_Black: MVS_Helmet_2_Base
 	{
 		scope = 2;
 		displayName = "MVS Combat Helmet - Multicam Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_Black_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_Black_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_Black_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_Black_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_Black_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_Black_co.paa"};
 	};
 	class MVS_Helmet_02_Multicam: MVS_Helmet_2_Base
 	{
 		scope = 2;
 		displayName = "MVS Combat Helmet - Multicam";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_co.paa"};
 	};
 	class MVS_Helmet_02_Multicam_Tropic: MVS_Helmet_2_Base
 	{
 		scope = 2;
 		displayName = "MVS Combat Helmet - Multicam Tropic";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_Tropic_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_Tropic_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_Tropic_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_Tropic_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_Tropic_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_MC_Tropic_co.paa"};
 	};
 	class MVS_Helmet_02_ERDL: MVS_Helmet_2_Base
 	{
 		scope = 2;
 		displayName = "MVS Combat Helmet - ERDL";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_ERDL_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_ERDL_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_ERDL_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\MVS_Helmet_2_ERDL_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_ERDL_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_ERDL_co.paa"};
 	};
 	class MVS_Helmet_02_Snow: MVS_Helmet_2_Base
 	{
 		scope = 2;
 		displayName = "MVS Combat Helmet - Snow";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_snow_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_snow_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_Helmet_2_snow_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\MVS_Helmet_2_snow_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_snow_co.paa","ModularVestSystem\data\Helmets\MVS_Helmet_2_snow_co.paa"};
 	};
-	class MVS_6B47Helmet_Base: Mich2001Helmet
+	class MVS_6B47Helmet_Base: Clothing
 	{
 		scope = 0;
 		displayName = "MVS 6B47 Helmet";
 		descriptionShort = "The Russian-designed 6B47 helmet is a part of ‘Ratnik’ (‘Warrior’) combat gear.";
-		attachments[]={"NVG","patch_03","helmetFlashlight"};
-		inventorySlot[] = {"Headgear","MVS_helmet"};
 		model = "ModularVestSystem\data\Helmets\MVS_6B47_g.p3d";
-		hiddenSelections[] = {"camoground","camomale","camofemale"};
-		hiddenSelectionsTextures[] = 
+		repairableWithKits[] = {8};
+		repairCosts[] = {25.0};
+		inventorySlot[] = {"Headgear","MVS_helmet"};
+		simulation = "clothing";
+		vehicleClass = "Clothing";
+		itemInfo[] = {"Clothing","Headgear"};
+		attachments[]={"NVG","patch_03","helmetFlashlight"};
+		rotationFlags = 2;
+		weight = 1200;
+		itemSize[] = {4,3};
+		noMask = 0;
+		varWetMax = 0.249;
+		heatIsolation = 0.25;
+		visibilityModifier = 0.95;
+		headSelectionsToHide[] = {"Clipping_Mich2001"};
+		class ClothingTypes
 		{
-			"ModularVestSystem\data\Helmets\do_helmets_co.paa",
-			"ModularVestSystem\data\Helmets\do_helmets_co.paa",
-			"ModularVestSystem\data\Helmets\do_helmets_co.paa"
+			male = "ModularVestSystem\data\Helmets\MVS_6B47.p3d";
+			female = "ModularVestSystem\data\Helmets\MVS_6B47_f.p3d";
 		};
-		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Helmets\MVS_6B47.rvmat"};	
+		hiddenSelections[] = {"camoground","camomale","camofemale"};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\do_helmets_co.paa","ModularVestSystem\data\Helmets\do_helmets_co.paa","ModularVestSystem\data\Helmets\do_helmets_co.paa"};
+		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Helmets\MVS_6B47.rvmat"};
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -1829,61 +1678,133 @@ class cfgVehicles
 					};
 				};
 			};
-		};		
-		class ClothingTypes
-		{
-			male = "ModularVestSystem\data\Helmets\MVS_6B47.p3d";
-			female = "ModularVestSystem\data\Helmets\MVS_6B47_f.p3d";
+			class GlobalArmor
+			{
+				class Projectile
+				{
+					class Health
+					{
+						damage = 0.35;
+					};
+					class Blood
+					{
+						damage = 0.0;
+					};
+					class Shock
+					{
+						damage = 0.5;
+					};
+				};
+				class Melee
+				{
+					class Health
+					{
+						damage = 0.25;
+					};
+					class Blood
+					{
+						damage = 0.0;
+					};
+					class Shock
+					{
+						damage = 0.25;
+					};
+				};
+				class Infected
+				{
+					class Health
+					{
+						damage = 0.25;
+					};
+					class Blood
+					{
+						damage = 0.0;
+					};
+					class Shock
+					{
+						damage = 0.25;
+					};
+				};
+				class FragGrenade
+				{
+					class Health
+					{
+						damage = 0.5;
+					};
+					class Blood
+					{
+						damage = 0.0;
+					};
+					class Shock
+					{
+						damage = 0.26;
+					};
+				};
+			};
 		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet = "pickUpPot_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "BallisticHelmet_drop_SoundSet";
+					id = 898;
+				};
+			};
+		};		
 	};
 	class MVS_6B47_Helmet_OD: MVS_6B47Helmet_Base
 	{
 		scope = 2;
 		displayName = "MVS 6B47 - OD";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\MVS_6B47_OD_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_6B47_OD_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_6B47_OD_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\MVS_6B47_OD_co.paa","ModularVestSystem\data\Helmets\MVS_6B47_OD_co.paa","ModularVestSystem\data\Helmets\MVS_6B47_OD_co.paa"};
 	};
 	class MVS_6B47_Helmet_Tan: MVS_6B47Helmet_Base
 	{
 		scope = 2;
 		displayName = "MVS 6B47 - Tan";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\MVS_6B47_Tan_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_6B47_Tan_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_6B47_Tan_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\MVS_6B47_Tan_co.paa","ModularVestSystem\data\Helmets\MVS_6B47_Tan_co.paa","ModularVestSystem\data\Helmets\MVS_6B47_Tan_co.paa"};
 	};
 	class MVS_6B47_Helmet_Black: MVS_6B47Helmet_Base
 	{
 		scope = 2;
 		displayName = "MVS 6B47 - Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\MVS_6B47_Black_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_6B47_Black_co.paa",
-			"ModularVestSystem\data\Helmets\MVS_6B47_Black_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\MVS_6B47_Black_co.paa","ModularVestSystem\data\Helmets\MVS_6B47_Black_co.paa","ModularVestSystem\data\Helmets\MVS_6B47_Black_co.paa"};
 	};
-	class MVS_OpsCore_Base: Mich2001Helmet
+	class MVS_OpsCore_Base: Clothing
 	{
 		scope = 0;
 		displayName = "MVS High Cut Helmet";
 		descriptionShort = "The High Cut style combat helmet offers good ballistic protection.";
+		model = "ModularVestSystem\data\Helmets\OpsCore_Helmet_g.p3d";
 		attachments[]={"NVG","patch_03","helmetFlashlight"};
 		inventorySlot[] = {"Headgear","MVS_helmet"};
-		model = "ModularVestSystem\data\Helmets\OpsCore_Helmet_g.p3d";
-		hiddenSelections[] = {"camoground","camomale","camofemale"};
-		hiddenSelectionsTextures[] = 
+		repairableWithKits[] = {8};
+		repairCosts[] = {25.0};
+		imulation = "clothing";
+		vehicleClass = "Clothing";
+		itemInfo[] = {"Clothing","Headgear"};
+		rotationFlags = 2;
+		weight = 1200;
+		itemSize[] = {4,3};
+		noMask = 0;
+		varWetMax = 0.249;
+		heatIsolation = 0.25;
+		visibilityModifier = 0.95;
+		headSelectionsToHide[] = {"Clipping_Mich2001"};
+		class ClothingTypes
 		{
-			"ModularVestSystem\data\Helmets\OpsCore_co.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co.paa"
+			male = "ModularVestSystem\data\Helmets\OpsCore_Helmet.p3d";
+			female = "ModularVestSystem\data\Helmets\OpsCore_Helmet.p3d";
 		};
+		hiddenSelections[] = {"camoground","camomale","camofemale"};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\OpsCore_co.paa","ModularVestSystem\data\Helmets\OpsCore_co.paa","ModularVestSystem\data\Helmets\OpsCore_co.paa"};
 		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Helmets\OpsCore.rvmat"};	
 		class DamageSystem
 		{
@@ -1902,128 +1823,161 @@ class cfgVehicles
 					};
 				};
 			};
-		};		
-		class ClothingTypes
-		{
-			male = "ModularVestSystem\data\Helmets\OpsCore_Helmet.p3d";
-			female = "ModularVestSystem\data\Helmets\OpsCore_Helmet.p3d";
+			class GlobalArmor
+			{
+				class Projectile
+				{
+					class Health
+					{
+						damage = 0.35;
+					};
+					class Blood
+					{
+						damage = 0.0;
+					};
+					class Shock
+					{
+						damage = 0.5;
+					};
+				};
+				class Melee
+				{
+					class Health
+					{
+						damage = 0.25;
+					};
+					class Blood
+					{
+						damage = 0.0;
+					};
+					class Shock
+					{
+						damage = 0.25;
+					};
+				};
+				class Infected
+				{
+					class Health
+					{
+						damage = 0.25;
+					};
+					class Blood
+					{
+						damage = 0.0;
+					};
+					class Shock
+					{
+						damage = 0.25;
+					};
+				};
+				class FragGrenade
+				{
+					class Health
+					{
+						damage = 0.5;
+					};
+					class Blood
+					{
+						damage = 0.0;
+					};
+					class Shock
+					{
+						damage = 0.26;
+					};
+				};
+			};
 		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet = "pickUpPot_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "BallisticHelmet_drop_SoundSet";
+					id = 898;
+				};
+			};
+		};			
 	};
 	class MVS_OpsCore_Tan: MVS_OpsCore_Base
 	{
 		scope = 2;
 		displayName = "MVS High Cut Helmet - Tan";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\OpsCore_co_Tan.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_Tan.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_Tan.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\OpsCore_co_Tan.paa","ModularVestSystem\data\Helmets\OpsCore_co_Tan.paa","ModularVestSystem\data\Helmets\OpsCore_co_Tan.paa"};
 	};
 	class MVS_OpsCore_OD: MVS_OpsCore_Base
 	{
 		scope = 2;
 		displayName = "MVS High Cut Helmet - OD";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\OpsCore_co.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\OpsCore_co.paa","ModularVestSystem\data\Helmets\OpsCore_co.paa","ModularVestSystem\data\Helmets\OpsCore_co.paa"};
 	};
 	class MVS_OpsCore_ERDL: MVS_OpsCore_Base
 	{
 		scope = 2;
 		displayName = "MVS High Cut Helmet - ERDL";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\OpsCore_co_ERDL.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_ERDL.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_ERDL.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\OpsCore_co_ERDL.paa","ModularVestSystem\data\Helmets\OpsCore_co_ERDL.paa","ModularVestSystem\data\Helmets\OpsCore_co_ERDL.paa"};
 	};
 	class MVS_OpsCore_Black: MVS_OpsCore_Base
 	{
 		scope = 2;
 		displayName = "MVS High Cut Helmet - Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\OpsCore_co_Black.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_Black.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_Black.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\OpsCore_co_Black.paa","ModularVestSystem\data\Helmets\OpsCore_co_Black.paa","ModularVestSystem\data\Helmets\OpsCore_co_Black.paa"};
 	};
 	class MVS_OpsCore_Snow: MVS_OpsCore_Base
 	{
 		scope = 2;
 		displayName = "MVS High Cut Helmet - Snow";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\OpsCore_co_Snow.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_Snow.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_Snow.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\OpsCore_co_Snow.paa","ModularVestSystem\data\Helmets\OpsCore_co_Snow.paa","ModularVestSystem\data\Helmets\OpsCore_co_Snow.paa"};
 	};	
 	class MVS_OpsCore_Multicam: MVS_OpsCore_Base
 	{
 		scope = 2;
 		displayName = "MVS High Cut Helmet - Multicam";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\OpsCore_co_MC.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_MC.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_MC.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\OpsCore_co_MC.paa","ModularVestSystem\data\Helmets\OpsCore_co_MC.paa","ModularVestSystem\data\Helmets\OpsCore_co_MC.paa"};
 	};	
 	class MVS_OpsCore_Multicam_Tropic: MVS_OpsCore_Base
 	{
 		scope = 2;
 		displayName = "MVS High Cut Helmet - Multicam Tropic";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\OpsCore_co_MC_Tropic.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_MC_Tropic.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_MC_Tropic.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\OpsCore_co_MC_Tropic.paa","ModularVestSystem\data\Helmets\OpsCore_co_MC_Tropic.paa","ModularVestSystem\data\Helmets\OpsCore_co_MC_Tropic.paa"};
 	};	
 	class MVS_OpsCore_Multicam_Black: MVS_OpsCore_Base
 	{
 		scope = 2;
 		displayName = "MVS High Cut Helmet - Multicam Black";
-		hiddenSelectionsTextures[] = 
-		{
-			"ModularVestSystem\data\Helmets\OpsCore_co_MC_Black.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_MC_Black.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co_MC_Black.paa"
-		};
+		hiddenSelectionsTextures[] = {"ModularVestSystem\data\Helmets\OpsCore_co_MC_Black.paa","ModularVestSystem\data\Helmets\OpsCore_co_MC_Black.paa","ModularVestSystem\data\Helmets\OpsCore_co_MC_Black.paa"};
 	};
-	class MVS_ArmoredHelmet_Base: MVS_OpsCore_Base
+	class MVS_ArmoredHelmet_Base: Clothing
 	{
 		scope=0;
 		model="ModularVestSystem\data\Helmets\Armored_Helmet_g.p3d";
 		descriptionShort = "The Armored MVS helmet offers the best ballistic protection, and comes prepped with a mandible and ballistic visor. Identifier patch can be attached.";
 		attachments[]={"patch_03"};
-		hiddenSelections[]=
+		repairableWithKits[] = {8};
+		repairCosts[] = {25.0};
+		inventorySlot[] = {"Headgear","MVS_helmet"};
+		simulation = "clothing";
+		vehicleClass = "Clothing";
+		itemInfo[] = {"Clothing","Headgear"};
+		weight = 1600;
+		itemSize[] = {4,4};
+		varWetMax = 0.49;
+		heatIsolation = 0.8;
+		noMask = 0;
+		headSelectionsToHide[] = {"Clipping_Maska"};
+		class ClothingTypes
 		{
-			"camoGround",
-			"camoMale",
-			"camoFemale",
-			"zbytek",
-			"visor"
+			male="ModularVestSystem\data\Helmets\Armored_Helmet.p3d";
+			female="ModularVestSystem\data\Helmets\Armored_Helmet.p3d";
 		};
-		hiddenSelectionsTextures[]=
-		{
-			"ModularVestSystem\data\Helmets\OpsCore_co.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co.paa",
-			"ModularVestSystem\data\Helmets\OpsCore_co.paa",
-			"ModularVestSystem\data\Helmets\Mandible_OD.paa",
-			"ModularVestSystem\data\Helmets\MVS_Visor.paa"
-		};
-        hiddenSelectionsMaterials[]=
-        {
-			"ModularVestSystem\data\Helmets\OpsCoreMandible.rvmat",
-			"ModularVestSystem\data\Helmets\OpsCore.rvmat"
-        };
+		hiddenSelections[]={"camoGround","camoMale","camoFemale","zbytek","visor"};
+		hiddenSelectionsTextures[]={"ModularVestSystem\data\Helmets\OpsCore_co.paa","ModularVestSystem\data\Helmets\OpsCore_co.paa","ModularVestSystem\data\Helmets\OpsCore_co.paa","ModularVestSystem\data\Helmets\Mandible_OD.paa","ModularVestSystem\data\Helmets\MVS_Visor.paa"};
+        hiddenSelectionsMaterials[]= {"ModularVestSystem\data\Helmets\OpsCoreMandible.rvmat","ModularVestSystem\data\Helmets\OpsCore.rvmat"};
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -2105,10 +2059,21 @@ class cfgVehicles
 				};
 			};
 		};
-		class ClothingTypes
+		class AnimEvents
 		{
-			male="ModularVestSystem\data\Helmets\Armored_Helmet.p3d";
-			female="ModularVestSystem\data\Helmets\Armored_Helmet.p3d";
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet = "DarkMotoHelmet_pickup_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "DarkMotoHelmet_drop_SoundSet";
+					id = 898;
+				};
+			};
 		};
 	};
 	class MVS_ArmoredHelmet_Tan: MVS_ArmoredHelmet_Base
@@ -2215,26 +2180,32 @@ class cfgVehicles
 			"ModularVestSystem\data\Helmets\MVS_Visor.paa"
 		};
 	};
-	class MVS_Altyn_Helmet_Base: MVS_ArmoredHelmet_Base
+	class MVS_Altyn_Helmet_Base: Clothing
 	{
 		scope=0;
-		model="ModularVestSystem\data\Helmets\MVS_Altyn_Helmet_g.p3d";
+		displayName = "MVS Altyn Helmet";
 		descriptionShort = "The Altyn MVS helmet offers the best ballistic protection. Identifier patch and Altyn Visor can be attached.";
+		model="ModularVestSystem\data\Helmets\MVS_Altyn_Helmet_g.p3d";
 		attachments[]={"MVS_Altyn_Visor","patch_03"};
-		hiddenSelections[]=
+		repairableWithKits[] = {8};
+		repairCosts[] = {25.0};
+		inventorySlot[] = {"Headgear","MVS_helmet"};
+		simulation = "clothing";
+		vehicleClass = "Clothing";
+		itemInfo[] = {"Clothing","Headgear"};
+		weight = 1600;
+		itemSize[] = {4,4};
+		varWetMax = 0.49;
+		heatIsolation = 0.8;
+		noMask = 0;
+		headSelectionsToHide[] = {"Clipping_Maska"};
+		class ClothingTypes
 		{
-			"camoGround",
-			"camoMale",
-			"camoFemale",
-			"zbytek"
+			male="ModularVestSystem\data\Helmets\MVS_Altyn_Helmet.p3d";
+			female="ModularVestSystem\data\Helmets\MVS_Altyn_Helmet.p3d";
 		};
-		hiddenSelectionsTextures[]=
-		{
-			"ModularVestSystem\data\Helmets\MVS_Altyn_co_OD.paa",
-			"ModularVestSystem\data\Helmets\MVS_Altyn_co_OD.paa",
-			"ModularVestSystem\data\Helmets\MVS_Altyn_co_OD.paa",
-			"ModularVestSystem\data\Helmets\MVS_Altyn_ca.paa"
-		};
+		hiddenSelections[]={"camoGround","camoMale","camoFemale","zbytek"};
+		hiddenSelectionsTextures[]={"ModularVestSystem\data\Helmets\MVS_Altyn_co_OD.paa","ModularVestSystem\data\Helmets\MVS_Altyn_co_OD.paa","ModularVestSystem\data\Helmets\MVS_Altyn_co_OD.paa","ModularVestSystem\data\Helmets\MVS_Altyn_ca.paa"};
 		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Helmets\MVS_Altyn.rvmat"};	
 		class DamageSystem
 		{
@@ -2317,10 +2288,21 @@ class cfgVehicles
 				};
 			};
 		};	
-		class ClothingTypes
+		class AnimEvents
 		{
-			male="ModularVestSystem\data\Helmets\MVS_Altyn_Helmet.p3d";
-			female="ModularVestSystem\data\Helmets\MVS_Altyn_Helmet.p3d";
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet = "DarkMotoHelmet_pickup_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "DarkMotoHelmet_drop_SoundSet";
+					id = 898;
+				};
+			};
 		};
 	};
 	class MVS_Altyn_OD: MVS_Altyn_Helmet_Base
@@ -2585,12 +2567,29 @@ class cfgVehicles
 			"ModularVestSystem\data\Helmets\MVS_Altyn_ca.paa"
 		};
 	};
-	class MVS_WarriorHelmet_Base: MVS_ArmoredHelmet_Base
+	class MVS_WarriorHelmet_Base: Clothing
 	{
 		scope=0;
 		model="ModularVestSystem\data\Helmets\Mandalorian_Helmet_g.p3d";
 		descriptionShort = "The MVS Warrior helmet offers the best ballistic protection, and comes prepped with a bounty hunter-worthy face shield. Identifier patch and NVGs can be attached.";
 		attachments[]={"NVG","patch_03","helmetFlashlight"};
+		repairableWithKits[] = {8};
+		repairCosts[] = {25.0};
+		inventorySlot[] = {"Headgear","MVS_helmet"};
+		simulation = "clothing";
+		vehicleClass = "Clothing";
+		itemInfo[] = {"Clothing","Headgear"};
+		weight = 1600;
+		itemSize[] = {4,4};
+		varWetMax = 0.49;
+		heatIsolation = 0.8;
+		noMask = 0;
+		headSelectionsToHide[] = {"Clipping_Maska"};
+		class ClothingTypes
+		{
+			male="ModularVestSystem\data\Helmets\Mandalorian_Helmet.p3d";
+			female="ModularVestSystem\data\Helmets\Mandalorian_Helmet.p3d";
+		};
 		hiddenSelections[]=
 		{
 			"camoGround",
@@ -2693,11 +2692,6 @@ class cfgVehicles
 				};
 			};
 		};			
-		class ClothingTypes
-		{
-			male="ModularVestSystem\data\Helmets\Mandalorian_Helmet.p3d";
-			female="ModularVestSystem\data\Helmets\Mandalorian_Helmet.p3d";
-		};
 	};
 	class MVS_WarriorHelmet_Tan: MVS_WarriorHelmet_Base
 	{
@@ -2803,16 +2797,31 @@ class cfgVehicles
 			"ModularVestSystem\data\Helmets\Mandalorian_Visor_co.paa"
 		};
 	};
-	class MVS_Pack_Base: MountainBag_ColorBase
+	class MVS_Pack_Base: Clothing
 	{
 		scope = 0;
 		displayName = "MVS Combat Pack";
 		descriptionShort = "The MVS Combat Pack - rugged, lightweight, and versatile.";
 		model = "ModularVestSystem\data\Pack\MVS_pack_g.p3d";
+		itemInfo[] = {"Clothing","Back"};
 		inventorySlot[] = {"Back","MVS_pack"};
 		attachments[] = {"Shoulder","modular_pouch_9","Chemlight","WalkieTalkie","patch_02"};
+		itemSize[] = {5,7};
+		itemsCargoSize[] = {7,10};
 		rotationFlags=16;
 		quickBarBonus = 2;
+		weight = 2000;
+		varWetMax = 0.79;
+		heatIsolation = 0.7;
+		repairableWithKits[] = {5,2};
+		repairCosts[] = {30.0,25.0};
+		soundAttType = "Outdoor";
+		randomQuantity = 4;
+		class ClothingTypes
+		{
+			male = "ModularVestSystem\data\Pack\MVS_pack.p3d";
+			female = "ModularVestSystem\data\Pack\MVS_pack.p3d";
+		};
 		hiddenSelections[] = {"camoGround","camoMale","camoFemale"};
 		hiddenSelectionsTextures[] = 
 		{
@@ -2839,10 +2848,26 @@ class cfgVehicles
 				};
 			};
 		};			
-		class ClothingTypes
+		class AnimEvents
 		{
-			male = "ModularVestSystem\data\Pack\MVS_pack.p3d";
-			female = "ModularVestSystem\data\Pack\MVS_pack.p3d";
+			class SoundWeapon
+			{
+				class pickUpItem_Light
+				{
+					soundSet = "pickUpBackPack_Plastic_Light_SoundSet";
+					id = 796;
+				};
+				class pickUpItem
+				{
+					soundSet = "pickUpBackPack_Plastic_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "taloonbag_drop_SoundSet";
+					id = 898;
+				};
+			};
 		};
 	};
 	class MVS_Assault_Pack_Tan: MVS_Pack_Base
@@ -2860,9 +2885,8 @@ class cfgVehicles
 			"ModularVestSystem\data\Pack\RaidPack_co.paa",
 			"ModularVestSystem\data\Pack\RaidPack_co.paa",
 			"ModularVestSystem\data\Pack\RaidPack_co.paa"
-			
 		};
-		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Pack\RaidPack.rvmat"};	
+		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Pack\RaidPack.rvmat"};
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -2987,7 +3011,7 @@ class cfgVehicles
 			"ModularVestSystem\data\Pack\MVS_Sling_OD_co.paa"
 			
 		};
-		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Pack\SlingPack.rvmat"};	
+		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Pack\SlingPack.rvmat"};
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -3124,7 +3148,7 @@ class cfgVehicles
 			"ModularVestSystem\data\Pack\MVS_Compact_1_co.paa"
 			
 		};
-		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Pack\MVS_Compact_1.rvmat"};	
+		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Pack\MVS_Compact_1.rvmat"};		
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -3379,7 +3403,7 @@ class cfgVehicles
 			"ModularVestSystem\data\Pack\MVS_Compact_2_co_Details_OD.paa"
 		};
 	};
-	class MVS_Rucksack_Base: MVS_Pack_Base
+	class MVS_Rucksack_Base: Clothing
 	{
 		scope = 0;
 		displayName = "MVS Combat Pack";
@@ -3390,8 +3414,19 @@ class cfgVehicles
 		rotationFlags=16;
 		itemSize[]={7,8};
 		itemsCargoSize[]={10,12};
-		weight=1600;
+		weight=1400;
+		varWetMax = 0.49;
+		heatIsolation = 0.7;
+		visibilityModifier = 1.2;
+		repairableWithKits[] = {5,2};
+		repairCosts[] = {30.0,25.0};
+		soundAttType = "Military";
 		quickBarBonus = 2;
+		class ClothingTypes
+		{
+			male = "\ModularVestSystem\data\Pack\MVS_Rucksack.p3d";
+			female = "\ModularVestSystem\data\Pack\MVS_Rucksack.p3d";
+		};
 		hiddenSelections[] = {"camoGround","camoMale","camoFemale"};
 		hiddenSelectionsTextures[] = 
 		{
@@ -3399,7 +3434,7 @@ class cfgVehicles
 			"ModularVestSystem\data\Pack\MVS_Rucksack_co.paa",
 			"ModularVestSystem\data\Pack\MVS_Rucksack_co.paa"
 		};
-		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Pack\Rucksack.rvmat"};	
+		hiddenSelectionsMaterials[] = {"ModularVestSystem\data\Pack\Rucksack.rvmat"};
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -3418,11 +3453,27 @@ class cfgVehicles
 				};
 			};
 		};		
-		class ClothingTypes
+		class AnimEvents
 		{
-			male = "ModularVestSystem\data\Pack\MVS_Rucksack.p3d";
-			female = "ModularVestSystem\data\Pack\MVS_Rucksack.p3d";
-		};
+			class SoundWeapon
+			{
+				class pickUpItem_Light
+				{
+					soundSet = "pickUpBackPack_Metal_Light_SoundSet";
+					id = 796;
+				};
+				class pickUpItem
+				{
+					soundSet = "pickUpBackPack_Metal_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "taloonbag_drop_SoundSet";
+					id = 898;
+				};
+			};
+		};	
 	};
 	class MVS_Rucksack_OD: MVS_Rucksack_Base
 	{
@@ -4399,15 +4450,21 @@ class cfgVehicles
 			"ModularVestSystem\data\s10\MVS_Balaclava2_co_snow.paa"
 		};
 	};
-	class MVS_Balaclava: BalaclavaMask_ColorBase
+	class MVS_Balaclava_Base: Clothing
 	{
 		scope = 0;
 		displayName = "MVS Balaclava";
 		descriptionShort = "A mask used for concealing one's identity... spooky right?";
+		model = "ModularVestSystem\data\s10\MVS_Balaclava_g.p3d";
+		rotationFlags=0;
+		weight = 130;
 		inventorySlot[] = {"Mask"};
 		itemSize[] = {3,2};
-		rotationFlags=0;
-		model = "ModularVestSystem\data\s10\MVS_Balaclava_g.p3d";
+		ragQuantity = 1;
+		varWetMax = 1.0;
+		heatIsolation = 1;
+		repairableWithKits[] = {5,2};
+		repairCosts[] = {30.0,25.0};
 		headSelectionsToHide[] = {"Clipping_Gasmask","Clipping_Balaclava_3holes"};
 		hiddenSelections[] = {"camoGround","camoMale","camoFemale","mask"};
 		hiddenSelectionsTextures[] = 
@@ -4442,11 +4499,31 @@ class cfgVehicles
 		};		
 		class ClothingTypes
 		{
-			male = "ModularVestSystem\data\s10\MVS_Balaclava.p3d";
-			female = "ModularVestSystem\data\s10\MVS_Balaclava_f.p3d";
+			male = "\ModularVestSystem\data\s10\MVS_Balaclava.p3d";
+			female = "\ModularVestSystem\data\s10\MVS_Balaclava_f.p3d";
+		};
+		class Protection
+		{
+			biological = 0.25;
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet = "Shirt_pickup_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "Shirt_drop_SoundSet";
+					id = 898;
+				};
+			};
 		};
 	};
-	class MVS_Balaclava_Wraith: MVS_Balaclava
+	class MVS_Balaclava_Wraith: MVS_Balaclava_Base
 	{
 		scope = 2;
 		displayName = "MVS Wraith Mask";
@@ -4458,15 +4535,22 @@ class cfgVehicles
 			"ModularVestSystem\data\s10\MVS_Balaclava_mask_co.paa"
 		};
 	};
-	class MVS_Balaclava2: BalaclavaMask_ColorBase
+	class MVS_Balaclava2_Base: Clothing
 	{
 		scope = 0;
 		displayName = "MVS Balaclava 2";
 		descriptionShort = "A mask used for concealing one's identity... spooky right?";
-		inventorySlot[] = {"Mask"};
-		itemSize[] = {3,2};
-		rotationFlags=0;
 		model = "ModularVestSystem\data\s10\MVS_Balaclava2_g.p3d";
+		itemInfo[] = {"Clothing","Mask"};
+		rotationFlags=0;
+		itemSize[] = {3,2};
+		weight = 130;
+		ragQuantity = 1;
+		varWetMax = 1.0;
+		heatIsolation = 1;
+		repairableWithKits[] = {5,2};
+		repairCosts[] = {30.0,25.0};
+		inventorySlot[] = {"Mask"};
 		headSelectionsToHide[] = {"Clipping_Gasmask","Clipping_Balaclava_3holes"};
 		hiddenSelections[] = {"camoGround","camoMale","camoFemale"};
 		hiddenSelectionsTextures[] = 
@@ -4502,8 +4586,28 @@ class cfgVehicles
 			male = "ModularVestSystem\data\s10\MVS_Balaclava2.p3d";
 			female = "ModularVestSystem\data\s10\MVS_Balaclava2_f.p3d";
 		};
+		class Protection
+		{
+			biological = 0.25;
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet = "Shirt_pickup_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "Shirt_drop_SoundSet";
+					id = 898;
+				};
+			};
+		};
 	};
-	class MVS_Balaclava_OD: MVS_Balaclava2
+	class MVS_Balaclava_OD: MVS_Balaclava2_Base
 	{
 		scope = 2;
 		displayName = "MVS Balaclava - OD";
@@ -4514,7 +4618,7 @@ class cfgVehicles
 			"ModularVestSystem\data\s10\MVS_Balaclava2_co.paa"
 		};
 	};
-	class MVS_Balaclava_Tan: MVS_Balaclava2
+	class MVS_Balaclava_Tan: MVS_Balaclava2_Base
 	{
 		scope = 2;
 		displayName = "MVS Balaclava - Tan";
@@ -4525,7 +4629,7 @@ class cfgVehicles
 			"ModularVestSystem\data\s10\MVS_Balaclava2_co_Tan.paa"
 		};
 	};
-	class MVS_Balaclava_Black: MVS_Balaclava2
+	class MVS_Balaclava_Black: MVS_Balaclava2_Base
 	{
 		scope = 2;
 		displayName = "MVS Balaclava - Black";
@@ -4536,7 +4640,7 @@ class cfgVehicles
 			"ModularVestSystem\data\s10\MVS_Balaclava2_co_Black.paa"
 		};
 	};
-	class MVS_Balaclava_Snow: MVS_Balaclava2
+	class MVS_Balaclava_Snow: MVS_Balaclava2_Base
 	{
 		scope = 2;
 		displayName = "MVS Balaclava - Snow";
@@ -4547,15 +4651,22 @@ class cfgVehicles
 			"ModularVestSystem\data\s10\MVS_Balaclava2_co_Snow.paa"
 		};
 	};
-	class MVS_Balaclava3: BalaclavaMask_ColorBase
+	class MVS_Balaclava3_Base: Clothing
 	{
 		scope = 0;
 		displayName = "MVS Balaclava 3";
 		descriptionShort = "A mask used for concealing one's identity... spooky right?";
-		inventorySlot[] = {"Mask"};
-		itemSize[] = {3,2};
-		rotationFlags=0;
 		model = "ModularVestSystem\data\s10\MVS_Balaclava3_g.p3d";
+		inventorySlot[] = {"Mask"};
+		itemInfo[] = {"Clothing","Mask"};
+		rotationFlags=0;
+		weight = 130;
+		itemSize[] = {3,2};
+		ragQuantity = 1;
+		varWetMax = 1.0;
+		heatIsolation = 1;
+		repairableWithKits[] = {5,2};
+		repairCosts[] = {30.0,25.0};
 		headSelectionsToHide[] = {"Clipping_Gasmask"};
 		hiddenSelections[] = {"camoGround","camoMale","camoFemale"};
 		hiddenSelectionsTextures[] = 
@@ -4591,8 +4702,28 @@ class cfgVehicles
 			male = "ModularVestSystem\data\s10\MVS_Balaclava3.p3d";
 			female = "ModularVestSystem\data\s10\MVS_Balaclava3_f.p3d";
 		};
+		class Protection
+		{
+			biological = 0.25;
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet = "Shirt_pickup_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "Shirt_drop_SoundSet";
+					id = 898;
+				};
+			};
+		};
 	};
-	class MVS_Facemask_OD: MVS_Balaclava3
+	class MVS_Facemask_OD: MVS_Balaclava3_Base
 	{
 		scope = 2;
 		displayName = "MVS Facemask - OD";
@@ -4603,7 +4734,7 @@ class cfgVehicles
 			"ModularVestSystem\data\s10\MVS_Balaclava2_co.paa"
 		};
 	};
-	class MVS_Facemask_Tan: MVS_Balaclava3
+	class MVS_Facemask_Tan: MVS_Balaclava3_Base
 	{
 		scope = 2;
 		displayName = "MVS Facemask - Tan";
@@ -4614,7 +4745,7 @@ class cfgVehicles
 			"ModularVestSystem\data\s10\MVS_Balaclava2_co_Tan.paa"
 		};
 	};
-	class MVS_Facemask_Black: MVS_Balaclava3
+	class MVS_Facemask_Black: MVS_Balaclava3_Base
 	{
 		scope = 2;
 		displayName = "MVS Facemask - Black";
@@ -4625,7 +4756,7 @@ class cfgVehicles
 			"ModularVestSystem\data\s10\MVS_Balaclava2_co_Black.paa"
 		};
 	};
-	class MVS_Facemask_Snow: MVS_Balaclava3
+	class MVS_Facemask_Snow: MVS_Balaclava3_Base
 	{
 		scope = 2;
 		displayName = "MVS Facemask - Snow";
@@ -4636,16 +4767,23 @@ class cfgVehicles
 			"ModularVestSystem\data\s10\MVS_Balaclava2_co_Snow.paa"
 		};
 	};
-	class MVS_Shroud_Base: BalaclavaMask_ColorBase
+	class MVS_Shroud_Base: Clothing
 	{
 		scope = 0;
 		displayName = "MVS Shroud";
 		descriptionShort = "A thin veil of netting used to break up outlines in the brush.";
-		inventorySlot[] = {"Headgear"};
+		model = "ModularVestSystem\data\s10\MVS_Shroud_g.p3d";
+		inventorySlot[] = {"Mask"};
+		itemInfo[] = {"Clothing","Mask"};
 		itemSize[] = {3,2};
 		rotationFlags=0;
-		model = "ModularVestSystem\data\s10\MVS_Shroud_g.p3d";
-		headSelectionsToHide[] = {"Clipping_Gasmask","Clipping_Balaclava_3holes"};
+		headSelectionsToHide[] = {"Clipping_Balaclava"};
+		weight = 210;
+		ragQuantity = 1;
+		varWetMax = 1.0;
+		heatIsolation = 1;
+		repairableWithKits[] = {5,2};
+		repairCosts[] = {30.0,25.0};
 		hiddenSelections[] = {"camoGround","camoMale","camoFemale"};
 		hiddenSelectionsTextures[] = 
 		{
@@ -4677,8 +4815,8 @@ class cfgVehicles
 		};		
 		class ClothingTypes
 		{
-			male = "ModularVestSystem\data\s10\MVS_Shroud.p3d";
-			female = "ModularVestSystem\data\s10\MVS_Shroud.p3d";
+			male = "\ModularVestSystem\data\s10\MVS_Shroud.p3d";
+			female = "\ModularVestSystem\data\s10\MVS_Shroud.p3d";
 		};
 		class AnimationSources
 		{
@@ -4687,6 +4825,26 @@ class cfgVehicles
 				source="user";
 				animPeriod=0.01;
 				initPhase=1;
+			};
+		};
+		class Protection
+		{
+			biological = 0.35;
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet = "Shirt_pickup_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "Shirt_drop_SoundSet";
+					id = 898;
+				};
 			};
 		};
 	};
@@ -5105,12 +5263,25 @@ class cfgVehicles
 			"ModularVestSystem\data\Helmets\MVS_Cap_co_Snow.paa"
 		};
 	};
-	class MVS_CombatPants_Base: BDUPants
+	class MVS_CombatPants_Base: Clothing
 	{
 		scope=0;
 		displayName="MVS Combat Pants";
 		descriptionShort="Designed as a no-compromise assault uniform, these pants are aggressively cut for maximum mobility.";
 		model="ModularVestSystem\data\Uniforms\MVS_CombatPants_g.p3d";
+		ContinuouActions[] = {"AT_WRING_CLOTHES"};
+		inventorySlot[] = {"Legs"};
+		simulation = "clothing";
+		itemInfo[] = {"Clothing","Legs"};
+		itemSize[] = {4,3};
+		itemsCargoSize[] = {7,5};
+		weight = 800;
+		ragQuantity = 3;
+		varWetMax = 0.79;
+		heatIsolation = 0.5;
+		visibilityModifier = 0.7;
+		repairableWithKits[] = {5,2};
+		repairCosts[] = {30.0,25.0};
 		quickBarBonus=2;
 		hiddenSelections[]={"camoGround","camoMale","camoFemale"};
 		hiddenSelectionsTextures[]=
@@ -5145,6 +5316,22 @@ class cfgVehicles
 		{
 			male="ModularVestSystem\data\Uniforms\MVS_CombatPants.p3d";
 			female="ModularVestSystem\data\Uniforms\MVS_CombatPants_f.p3d";
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet = "Shirt_pickup_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "Shirt_drop_SoundSet";
+					id = 898;
+				};
+			};
 		};
 	};	
 	class MVS_CombatPants_Tan: MVS_CombatPants_Base
@@ -5235,13 +5422,24 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_CombatPants_MC_Black.paa"
 		};
 	};	
-	class MVS_CombatShirt_Base: TacticalShirt_ColorBase
+	class MVS_CombatShirt_Base: Clothing
 	{
 		scope=0;
 		displayName="MVS Combat Shirt";
 		descriptionShort="The MVS Combat Shirt is a combat-specific garment specifically designed to be worn under body armor.";
 		model="ModularVestSystem\data\Uniforms\MVS_CombatShirt_g.p3d";
 		quickBarBonus=1;
+		inventorySlot[] = {"Body"};
+		itemInfo[] = {"Clothing","Body"};
+		weight = 270;
+		itemSize[] = {4,3};
+		itemsCargoSize[] = {7,5};
+		varWetMax = 0.79;
+		heatIsolation = 0.7;
+		ragQuantity = 4;
+		repairableWithKits[] = {5,2};
+		repairCosts[] = {30.0,25.0};
+		soundAttType = "WoolShirt";
 		hiddenSelections[]=
 		{
 			"camoGround",
@@ -5274,6 +5472,22 @@ class cfgVehicles
 		{
 			male="ModularVestSystem\data\Uniforms\MVS_CombatShirt.p3d";
 			female="ModularVestSystem\data\Uniforms\MVS_CombatShirt_f.p3d";
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet = "Shirt_pickup_SoundSet";
+					id = 797;
+				};
+				class drop
+				{
+					soundset = "Shirt_drop_SoundSet";
+					id = 898;
+				};
+			};
 		};
 	};
 	class MVS_CombatShirt_Tan: MVS_CombatShirt_Base
@@ -8272,140 +8486,99 @@ class CfgSlots
 	class Slot_MVSBattery1
 	{
 		name="MVSBattery1";
-		displayName="MVSBattery1";
+		displayName="Battery";
 		ghostIcon="batteryd";
 	};
-	
 	class Slot_MVSBattery2
 	{
 		name="MVSBattery2";
-		displayName="MVSBattery2";
+		displayName="Battery";
 		ghostIcon="batteryd";
-	};
-	
-	class Slot_magazine4
-	{
-		name="magazine4";
-		displayName="magazine4";
-		ghostIcon="magazine2";
-	};	
-	class Slot_magazine5
-	{
-		name="magazine5";
-		displayName="magazine5";
-		ghostIcon="magazine2";
-	};
-	class Slot_magazine7
-	{
-		name="magazine7";
-		displayName="magazine7";
-		ghostIcon="magazine";
-	};	
-	class Slot_magazine8
-	{
-		name="magazine8";
-		displayName="magazine8";
-		ghostIcon="magazine2";
-	};	
-	class Slot_magazine9
-	{
-		name="magazine9";
-		displayName="magazine9";
-		ghostIcon="magazine2";
-	};
-	class Slot_magazine10
-	{
-		name="magazine10";
-		displayName="magazine10";
-		ghostIcon="magazine";
 	};
 	class Slot_modular_pouch_2
 	{
 		name = "modular_pouch_2";
-		displayName = "modular_pouch_2";
+		displayName = "Modular Pouch";
 		ghostIcon = "vestpouches";
 	};
 	class Slot_modular_pouch_4
 	{
 		name = "modular_pouch_4";
-		displayName = "modular_pouch_4";
+		displayName = "Modular Pouch";
 		ghostIcon = "pouches";
 	};
-	
 	class Slot_modular_pouch_5
 	{
 		name = "modular_pouch_5";
-		displayName = "modular_pouch_5";
+		displayName = "Modular Pouch";
 		ghostIcon = "pouches";
 	};
-	
 	class Slot_modular_pouch_6
 	{
 		name = "modular_pouch_6";
-		displayName = "modular_pouch_6";
+		displayName = "Modular Pouch";
 		ghostIcon = "pouches";
 	};
 	class Slot_modular_pouch_8
 	{
 		name = "modular_pouch_8";
-		displayName = "modular_pouch_8";
+		displayName = "Modular Pouch";
 		ghostIcon = "pouches";
 	};
 	class Slot_modular_pouch_9
 	{
 		name = "modular_pouch_9";
-		displayName = "modular_pouch_9";
+		displayName = "Modular Pouch";
 		ghostIcon = "pouches";
 	};
 	class Slot_modular_pouch_10
 	{
 		name = "modular_pouch_10";
-		displayName = "modular_pouch_10";
+		displayName = "Modular Pouch";
 		ghostIcon = "pouches";
 	};
 	class Slot_modular_pouch_11
 	{
 		name = "modular_pouch_11";
-		displayName = "modular_pouch_11";
+		displayName = "Modular Pouch";
 		ghostIcon = "pouches";
 	};
 	class Slot_modular_pouch_12
 	{
 		name = "modular_pouch_12";
-		displayName = "modular_pouch_12";
+		displayName = "Modular Pouch";
 		ghostIcon = "vestpouches";
 	};
 	class Slot_modular_pouch_13
 	{
 		name = "modular_pouch_13";
-		displayName = "modular_pouch_13";
+		displayName = "Modular Pouch";
 		ghostIcon = "pouches";
 	};
 	class Slot_patch_01
 	{
 		name = "patch_01";
-		displayName = "patch_01";
+		displayName = "Patch";
 		ghostIcon = "armband";
 	};
 	class Slot_patch_02
 	{
 		name = "patch_02";
-		displayName = "patch_02";
+		displayName = "Patch";
 		ghostIcon = "armband";
 	};
 	class Slot_patch_03
 	{
 		name = "patch_03";
-		displayName = "patch_03";
+		displayName = "Patch";
 		ghostIcon = "armband";
 	};
 	class Slot_patch_04
 	{
 		name = "patch_04";
-		displayName = "patch_04";
+		displayName = "Patch";
 		ghostIcon = "armband";
 	};	
-	
 	class Slot_morphine
 	{
 		name = "morphine";
@@ -8421,67 +8594,67 @@ class CfgSlots
 	class Slot_MVS_vest
 	{
 		name = "MVS_vest";
-		displayName = "MVS_vest";
+		displayName = "MVS Vest";
 		ghostIcon = "vest";
 	};
 	class Slot_MVS_helmet
 	{
 		name = "MVS_helmet";
-		displayName = "MVS_helmet";
+		displayName = "MVS Helmet";
 		ghostIcon = "headgear";
 	};
 	class Slot_MVS_mask
 	{
 		name = "MVS_mask";
-		displayName = "MVS_mask";
+		displayName = "MVS Mask";
 		ghostIcon = "mask";
 	};
 	class Slot_MVS_pack
 	{
 		name = "MVS_pack";
-		displayName = "MVS_pack";
+		displayName = "MVS Pack";
 		ghostIcon = "back";
 	};
 	class Slot_MVS_belt
 	{
 		name = "MVS_belt";
-		displayName = "MVS_belt";
+		displayName = "MVS Belt";
 		ghostIcon = "hips";
 	};
 	class Slot_MVS_Screwdriver
 	{
 		name="MVS_Screwdriver";
-		displayName = "MVS_Screwdriver";
+		displayName = "Screwdriver";
 		ghostIcon = "";
 	};
 	class Slot_MVS_Pliers
 	{
 		name="MVS_Pliers";
-		displayName = "MVS_Pliers";
+		displayName = "Pliers";
 		ghostIcon = "";
 	};
 	class Slot_Screwdriver1
 	{
 		name="Screwdriver1";
-		displayName = "Screwdriver1";
+		displayName = "Screwdriver";
 		ghostIcon = "";
 	};
 	class Slot_Pliers1
 	{
 		name="Pliers1";
-		displayName = "Pliers1";
+		displayName = "Pliers";
 		ghostIcon = "";
 	};
 	class Slot_MVS_Lockpick
 	{
 		name="MVS_Lockpick";
-		displayName = "MVS_Lockpick";
+		displayName = "Lockpick";
 		ghostIcon = "";
 	};
 	class Slot_MVS_Altyn_Visor
 	{
 		name="MVS_Altyn_Visor";
-		displayName = "MVS_Altyn_Visor";
+		displayName = "Altyn Visor";
 		ghostIcon = "gorkavisor";
 	};
 };
@@ -8640,25 +8813,6 @@ class CfgNonAIVehicles
 		inventorySlot = "patch_04";
 		model = "ModularVestSystem\data\patch_03.p3d";
 	};	
-	class ProxyMVS_Mag: ProxyAttachment
-	{
-		scope = 2;
-		inventorySlot = "magazine4";
-		model = "ModularVestSystem\data\MVS_Mag.p3d";
-	};
-	class ProxyMVS_Mag2: ProxyAttachment
-	{
-		scope = 2;
-		inventorySlot = "magazine5";
-		model = "ModularVestSystem\data\MVS_Mag2.p3d";
-	};
-	class ProxyMVS_MagPistol: ProxyAttachment
-	{
-		scope = 2;
-		inventorySlot = "magazine7";
-		model = "ModularVestSystem\data\MVS_MagPistol.p3d";
-	};
-	
 	class ProxyMVS_Pliers: ProxyAttachment
 	{
 		scope = 2;
