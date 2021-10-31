@@ -13,5 +13,6 @@ modded class ModItemRegisterCallbacks
         super.RegisterTwoHanded(pType, pBehavior);
 
         pType.AddItemInHandsProfileIK("MVS_Pack_Base", "dz/anims/workspaces/player/player_main/weapons/player_main_2h_extinguisher.asi", pBehavior,"dz/anims/anm/player/ik/two_handed/mountain_g.anm");
+        pType.AddItemInHandsProfileIK("MVS_Rucksack_Base", "dz/anims/workspaces/player/player_main/weapons/player_main_2h_extinguisher.asi", pBehavior,"dz/anims/anm/player/ik/two_handed/mountain_g.anm");
     }
 };
