@@ -3808,7 +3808,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Belt\belt_co_MC_Tropic.paa"
 		};
 	};
-	class PlateCarrierHolster;
 	class MVS_Holster_OD: PlateCarrierHolster
 	{
 		displayName = "MVS Holster - OD";
@@ -4162,7 +4161,7 @@ class cfgVehicles
 	{
 		scope = 0;
 	};
-	class MVS_GasMaskBase: GP5GasMask{};
+	class MVS_GasMaskBase: GasMask{};
 	class MVS_S10Respirator: MVS_GasMaskBase
 	{
 		scope = 0;
@@ -5665,7 +5664,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_GorkaPants_MC_Black.paa"
 		};
 	};
-	class GorkaEJacket_Flat;
 	class MVS_GorkaJacket: GorkaEJacket_Flat
 	{
 		displayName = "MVS Gorka Top - ERDL";
@@ -5792,8 +5790,6 @@ class cfgVehicles
 			"ModularVestSystem\data\Uniforms\MVS_FlatCap_MC_Black.paa"
 		};
 	};
-	class CargoPants_Beige;
-	class TacticalShirt_Olive;
 	class MVS_Pants_BDU: CargoPants_Beige
 	{
 		scope = 2;
