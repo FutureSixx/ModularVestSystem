@@ -1473,7 +1473,7 @@ class cfgVehicles
 			"ModularVestSystem\data\Helmets\OpsCoreComtacs_co.paa"
 		};
 	};
-	class MVS_Helmet_2_Base: Mich2001Helmet
+	class MVS_Helmet_2_Base: Clothing
 	{
 		scope = 0;
 		displayName = "MVS Combat Helmet 2";
