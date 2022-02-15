@@ -22,8 +22,57 @@ class MVS_Pouch_Base extends Container_Base
             return true;
         return false;
     }
-}
+};
 
+class Modular_Pouch_Base: MVS_Pouch_Base {};
+class MVS_Magazine_Pouch_OD: Modular_Pouch_Base {};
+class MVS_Magazine_Pouch_ERDL: Modular_Pouch_Base {};
+class MVS_Magazine_Pouch_Tan: Modular_Pouch_Base {};
+class MVS_Magazine_Pouch_Black: Modular_Pouch_Base {};
+class MVS_Magazine_Pouch_Snow: Modular_Pouch_Base {};
+class MVS_Magazine_Pouch_Multicam: Modular_Pouch_Base {};
+class MVS_Magazine_Pouch_Multicam_Black: Modular_Pouch_Base {};
+class MVS_Magazine_Pouch_Multicam_Tropic: Modular_Pouch_Base {};
+
+class Modular_Pouch_Base_Admin: MVS_Pouch_Base{};
+class MVS_Admin_Pouch_OD: Modular_Pouch_Base_Admin {};
+class MVS_Admin_Pouch_ERDL: Modular_Pouch_Base_Admin {};
+class MVS_Admin_Pouch_Tan: Modular_Pouch_Base_Admin {};
+class MVS_Admin_Pouch_Black: Modular_Pouch_Base_Admin {};
+class MVS_Admin_Pouch_Snow: Modular_Pouch_Base_Admin {};
+class MVS_Admin_Pouch_Multicam: Modular_Pouch_Base_Admin {};
+class MVS_Admin_Pouch_Multicam_Black: Modular_Pouch_Base_Admin {};
+class MVS_Admin_Pouch_Multicam_Tropic: Modular_Pouch_Base_Admin {};
+
+class Modular_Pouch_Base_Heavy: MVS_Pouch_Base{};
+class MVS_Heavy_Pouch_OD: Modular_Pouch_Base_Heavy {};
+class MVS_Heavy_Pouch_ERDL: Modular_Pouch_Base_Heavy {};
+class MVS_Heavy_Pouch_Tan: Modular_Pouch_Base_Heavy {};
+class MVS_Heavy_Pouch_Black: Modular_Pouch_Base_Heavy {};
+class MVS_Heavy_Pouch_Snow: Modular_Pouch_Base_Heavy {};
+class MVS_Heavy_Pouch_Multicam: Modular_Pouch_Base_Heavy {};
+class MVS_Heavy_Pouch_Multicam_Tropic: Modular_Pouch_Base_Heavy {};
+class MVS_Heavy_Pouch_Multicam_Black: Modular_Pouch_Base_Heavy {};
+
+class Modular_Pouch_Base_Utility: MVS_Pouch_Base {};
+class MVS_Utility_Pouch_OD: Modular_Pouch_Base_Utility {};
+class MVS_Utility_Pouch_ERDL: Modular_Pouch_Base_Utility {};
+class MVS_Utility_Pouch_Tan: Modular_Pouch_Base_Utility {};
+class MVS_Utility_Pouch_Black: Modular_Pouch_Base_Utility {};
+class MVS_Utility_Pouch_Snow: Modular_Pouch_Base_Utility {};
+class MVS_Utility_Pouch_Multicam: Modular_Pouch_Base_Utility {};
+class MVS_Utility_Pouch_Multicam_Black: Modular_Pouch_Base_Utility {};
+class MVS_Utility_Pouch_Multicam_Tropic: Modular_Pouch_Base_Utility {};
+
+class Modular_Pouch_Base_Medical: MVS_Pouch_Base {};
+class MVS_Medical_Pouch_OD: Modular_Pouch_Base_Medical {};
+class MVS_Medical_Pouch_ERDL: Modular_Pouch_Base_Medical {};
+class MVS_Medical_Pouch_Tan: Modular_Pouch_Base_Medical {};
+class MVS_Medical_Pouch_Black: Modular_Pouch_Base_Medical {};
+class MVS_Medical_Pouch_Snow: Modular_Pouch_Base_Medical {};
+class MVS_Medical_Pouch_Multicam: Modular_Pouch_Base_Medical {};
+class MVS_Medical_Pouch_Multicam_Black: Modular_Pouch_Base_Medical {};
+class MVS_Medical_Pouch_Multicam_Tropic: Modular_Pouch_Base_Medical {};
 
 class Modular_Pouch_Base_Taco extends MVS_Pouch_Base
 {

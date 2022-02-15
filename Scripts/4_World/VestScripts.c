@@ -41,25 +41,6 @@ class ModularVestSystem_Base extends Clothing
         }		
         return super.CanReceiveAttachment(attachment, slotId);
     }
-	
-	
-    override bool CanDisplayAttachmentSlot( string slot_name )
-    {    
-        
-		if (!super.CanDisplayAttachmentSlot(slot_name))
-            return false;
-		
-		if ( slot_name == "modular_pouch_2" )
-        {
-            if ( this.FindAttachmentBySlotName("modular_pouch_2") == NULL) 
-            {
-				return false;
-            }
-            return true;        
-        }
-        return true;
-    }
-	
 }
 	
 class Modular_Belt_Base extends Clothing
@@ -104,24 +85,6 @@ class Modular_Belt_Base extends Clothing
             }
         }		
         return super.CanReceiveAttachment(attachment, slotId);
-    }
-	
-	
-    override bool CanDisplayAttachmentSlot( string slot_name )
-    {    
-        
-		if (!super.CanDisplayAttachmentSlot(slot_name))
-            return false;
-		
-		if ( slot_name == "modular_pouch_2" )
-        {
-            if ( this.FindAttachmentBySlotName("modular_pouch_2") == NULL) 
-            {
-				return false;
-            }
-            return true;        
-        }
-        return true;
     }
 }
 
@@ -186,23 +149,5 @@ class ModularChestRig_Base extends Clothing
             }
         }		
         return super.CanReceiveAttachment(attachment, slotId);
-    }
-	
-	
-    override bool CanDisplayAttachmentSlot( string slot_name )
-    {    
-        
-		if (!super.CanDisplayAttachmentSlot(slot_name))
-            return false;
-		
-		if ( slot_name == "modular_pouch_2" )
-        {
-            if ( this.FindAttachmentBySlotName("modular_pouch_2") == NULL) 
-            {
-				return false;
-            }
-            return true;        
-        }
-        return true;
     }
 }
