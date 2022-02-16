@@ -1,22 +1,22 @@
 class ArmorRack_Kit : ItemBase
 {
-	void Msp_Kit()
+	void ArmorRack_Kit()
 	{
 		RegisterNetSyncVariableBool("m_IsSoundSynchRemote");
 	}
 
 	override void OnPlacementComplete(Man player, vector position = "0 0 0", vector orientation = "0 0 0")
-    {
-        super.OnPlacementComplete(player, position, orientation);
-        if (GetGame().IsServer())
-        {
-            EntityAI ArmorRack_Kit1 = EntityAI.Cast(GetGame().CreateObjectEx("Armor_Rack", position, ECE_PLACE_ON_SURFACE));
-            ArmorRack_Kit1.SetPosition(position);
-            ArmorRack_Kit1.SetOrientation(orientation);
-        }
+    	{
+        	super.OnPlacementComplete(player, position, orientation);
+        	if (GetGame().IsServer())
+        	{
+            		EntityAI ArmorRack_Kit1 = EntityAI.Cast(GetGame().CreateObjectEx("Armor_Rack", position, ECE_PLACE_ON_SURFACE));
+            		ArmorRack_Kit1.SetPosition(position);
+            		ArmorRack_Kit1.SetOrientation(orientation);
+        	}
 
-        SetIsDeploySound(true);
-    }
+        	SetIsDeploySound(true);
+    	}
 	
 	override bool IsBasebuildingKit()
 	{
